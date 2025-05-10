@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nafees Shaikh | Data Scientist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 200px;
+            border-radius: 30%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-text p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            background-color: var(--primary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--light-color);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--dark-color);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .bg-light {
+            background-color: var(--light-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.8s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .project-info p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-item {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .project-links a:first-child {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .project-links a:last-child {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Education Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -10px;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        /* Updated Awards & Certificates Section */
+        .awards-container {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .award-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .award-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .award-text h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .award-text p {
+            color: var(--text-light);
+        }
+
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .certificate-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certificate-image {
+            height: 200px;
+            overflow: hidden;
+            border-bottom: 1px solid #eee;
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .certificate-card:hover .certificate-image img {
+            transform: scale(1.05);
+        }
+
+        .certificate-info {
+            padding: 1.5rem;
+        }
+
+        .certificate-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+
+        .certificate-info p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .view-certificate {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .view-certificate:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Modal for certificate viewing */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            max-width: 100%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 5px;
+            object-fit: contain;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: -30px;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info-box h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: white;
+        }
+
+        .copyright {
+            color: var(--light-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .left::after,
+            .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-text h1 {
+                font-size: 2rem;
+            }
+
+            .header-text p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .award-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .certificates-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <img src="nafees profile.jpg" alt="Nafees Shaikh" class="profile-img">
+            <div class="header-text">
+                <h1>Nafees Shaikh</h1>
+                <p>Data Scientist | Machine Learning Engineer</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/nafees-shaikh-441405251" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/datascience619"><i class="fab fa-github"></i></a>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>nafisshaikh114@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>9975584833</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mumbai, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Nafees<span>Shaikh</span></div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#awards">Awards</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a Data Science graduate with expertise in Python, Machine Learning, and SQL.
+                        I'm passionate about building real-world solutions that leverage data to solve complex problems.
+                    </p>
+                    <p>
+                        My projects include biometric authentication systems, smart inventory management,
+                        and NLP applications. I'm driven by the challenge of extracting meaningful insights
+                        from data and creating intelligent systems that automate tasks and fuel innovation.
+                    </p>
+                    <p>
+                        When I'm not coding, you can find me exploring new technologies, contributing to
+                        open-source projects, or participating in hackathons and data science competitions.
+                    </p>
+                    <div class="skills">
+                        <span class="skill">Python</span>
+                        <span class="skill">Machine Learning</span>
+                        <span class="skill">SQL</span>
+                        <span class="skill">Tableau</span>
+                        <span class="skill">Power BI</span>
+                        <span class="skill">OpenCV</span>
+                        <span class="skill">NLP</span>
+                        <span class="skill">Data Analysis</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="nafeees11.jpg" alt="Nafees working on laptop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="inventory.PNG" alt="Smart Inventory Management System">
+                    </div>
+                    <div class="project-info">
+                        <h3>Smart Inventory Management System</h3>
+                        <p>
+                            An automated system that tracks stock levels, predicts demand, manages reorders,
+                            and sends alerts when inventory is low.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">SQLite</span>
+                            <span class="tech-item">TKinter</span>
+                            <span class="tech-item">Machine Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/datascience619/Inventory-management"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="fingerpring.jpg" alt="Signature & Fingerprint Recognition System">
+                    </div>
+                    <div class="project-info">
+                        <h3>Signature & Fingerprint Recognition</h3>
+                        <p>
+                            A biometric authentication system that verifies users by matching their
+                            signature and fingerprint images with stored templates.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">OpenCV</span>
+                            <span class="tech-item">Machine Learning</span>
+                            <span class="tech-item">Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/datascience619/Authentication"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+               <!-- Project 3 -->
+<div class="project-card">
+    <div class="project-image">
+        <img src="covid.PNG" alt="nafees shaikh">
+    </div>
+    <div class="project-info">
+        <h3>Nafees Shaikh</h3>
+        <p>
+            A Tableau dashboard that analyzes Covid-19 data in India, visualizing state-wise testing, vaccination,
+            case trends, and demographic distributions across age and gender.
+        </p>
+        <div class="project-tech">
+            <span class="tech-item">Tableau</span>
+            <span class="tech-item">Data Analysis</span>
+            <span class="tech-item">Dashboarding</span>
+        </div>
+        <div class="project-links">
+            <a href="https://public.tableau.com/app/profile/nafees.shaikh5920/viz/covid19_17468123173620/Dashboard1?publish=yes"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fab fa-github"></i> Code</a>
+            </a>
+        </div>
+    </div>
+</div>
+
+                <!-- Project 4 -->
+<div class="project-card">
+    <div class="project-image">
+        <img src="netflix.PNG" alt="nafees shaikh">
+    </div>
+    <div class="project-info">
+        <h3>nafees shaikh</h3>
+        <p>
+            An interactive Tableau dashboard that visualizes global Netflix data by analyzing movie genres,
+            ratings, release years, and geographic distribution.
+        </p>
+        <div class="project-tech">
+            <span class="tech-item">Tableau</span>
+            <span class="tech-item">Data Visualization</span>
+            <span class="tech-item">Data Analysis</span>
+        </div>
+        <div class="project-links">
+            <a href="https://public.tableau.com/app/profile/nafees.shaikh5920/viz/netflix_17468124620910/Netflix?publish=yes"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fab fa-github"></i> Code</a>
+            </a>
+        </div>
+    </div>
+</div>
+
+               <!-- Project 3 -->
+<div class="project-card">
+    <div class="project-image">
+        <img src="agribot.JPG" alt="Agricultural Assistant App">
+    </div>
+    <div class="project-info">
+        <h3>Agricultural Assistant App</h3>
+        <p>
+            A smart farming assistant that recommends crops, predicts plant diseases from images,
+            and answers agricultural queries via chatbot. Combines ML, DL, and NLP in a user-friendly GUI.
+        </p>
+        <div class="project-tech">
+            <span class="tech-item">Python</span>
+            <span class="tech-item">Tkinter</span>
+            <span class="tech-item">TensorFlow</span>
+            <span class="tech-item">scikit-learn</span>
+            <span class="tech-item">NLTK</span>
+        </div>
+        <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="https://github.com/datascience619/Agribot/tree/main"><i class="fab fa-github"></i> Code</a>
+        </div>
+    </div>
+</div>
+
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="summarizer.JPG" alt="Text Summarization & Translation Tool">
+                    </div>
+                    <div class="project-info">
+                        <h3>Text Summarization & Translation</h3>
+                        <p>
+                            A tool that summarizes long texts and translates them into multiple languages,
+                            powered by NLP techniques and translation APIs.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">NLP</span>
+                            <span class="tech-item">Google Translate API</span>
+                            <span class="tech-item">Flask</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/datascience619/Text-summarisation"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>B.Sc in Data Science</h3>
+                        <p>Reena Mehta College, Mumbai</p>
+                        <div class="timeline-date">08/2022 – 04/2025</div>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Higher Secondary Certificate (HSC)</h3>
+                        <p>New Era Jr. College, Bhiwandi, Thane</p>
+                        <div class="timeline-date">06/2021 – 04/2022</div>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Secondary School Certificate (SSC)</h3>
+                        <p>Rafiuddin Fakhi Boys High School, Bhiwandi, Thane</p>
+                        <div class="timeline-date">06/2019 – 03/2020</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards & Certificates Section -->
+    <section id="awards" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Awards & Certificates</h2>
+            </div>
+           <!-- In the Awards & Certificates section -->
+<div class="certificates-container">
+    <!-- Certificate 1 -->
+    <div class="certificate-card">
+        <div class="certificate-image">
+            <img src="basicpy.jpg" alt="Python Certificate">
+        </div>
+        <div class="certificate-info">
+            <h3>Basics of Python – Cambridge</h3>
+            <p>Certified by Cambridge through Uniathena for completing foundational Python programming course.</p>
+            <a href="https://uniathena.com/verify/certificate?certID=5107-6408-2727" class="view-certificate" target="_blank">View Certificate</a>
+        </div>
+    </div>
+
+    <!-- Certificate 2 -->
+    <div class="certificate-card">
+        <div class="certificate-image">
+            <img src="debuging.jpg" alt="Dibugging Participation">
+        </div>
+        <div class="certificate-info">
+            <h3>Dibugug Participation</h3>
+            <p>Participated in Dibugug debugging competition, showcasing problem-solving skills in code analysis.</p>
+            <a href="#" class="view-certificate view-certificate-btn" data-img="debuging.jpg">View Certificate</a>
+        </div>
+    </div>
+
+    <!-- Certificate 3 -->
+    <div class="certificate-card">
+        <div class="certificate-image">
+            <img src="aichat.jpg" alt="AI Chat Bot Certificate">
+        </div>
+        <div class="certificate-info">
+            <h3>AI Chat Bot Workshop</h3>
+            <p>Completed workshop on building AI-powered chat bots using natural language processing techniques.</p>
+            <a href="https://cert.diceid.com/cid/ck61Mn5sgA?verify=true" class="view-certificate view-certificate-btn" data-img="aichat.jpg">View Certificate</a>
+        </div>
+    </div>
+
+    <!-- Certificate 4 -->
+    <div class="certificate-card">
+        <div class="certificate-image">
+            <img src="BI.jpg" alt="Power BI Certificate">
+        </div>
+        <div class="certificate-info">
+            <h3>Power BI Training</h3>
+            <p>Certified in data visualization and business intelligence using Microsoft Power BI tools.</p>
+            <a href="#" class="view-certificate view-certificate-btn" data-img="BI.jpg">View Certificate</a>
+        </div>
+    </div>
+
+    <!-- Certificate 5 -->
+    <div class="certificate-card">
+        <div class="certificate-image">
+            <img src="cyber.jpg" alt="Cybersecurity Certificate">
+        </div>
+        <div class="certificate-info">
+            <h3>Cybersecurity Workshop</h3>
+            <p>Participated in cybersecurity workshop covering ethical hacking and system protection techniques.</p>
+            <a href="#" class="view-certificate view-certificate-btn" data-img="cyber.jpg">View Certificate</a>
+        </div>
+    </div>
+
+    <!-- Certificate 6 -->
+    <div class="certificate-card">
+        <div class="certificate-image">
+            <img src="model1.jpg" alt="Model Making Certificate">
+        </div>
+        <div class="certificate-info">
+            <h3>Model Making Competition</h3>
+            <p>Won 3rd prize in model making competition for innovative authentication system.</p>
+            <a href="#" class="view-certificate view-certificate-btn" data-img="model1.jpg">View Certificate</a>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div class="modal" id="certificateModal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img id="model1.jpg" src="" alt="Certificate">
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info-box">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>nafisshaikh114@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 9975584833</p>
+                            </div>
+                        </div>
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Mumbai, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info-box">
+                    <h3>Send Me a Message</h3>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">Nafees<span>Nafees Shaikh</span></div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#awards">Awards</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/nafees-shaikh-441405251" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/datascience619"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/sh123.nafees/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/mohdnafees.shaikh.906" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p class="copyright">© 2025 Nafees Shaikh — Turning data into actionable insights. All rights reserved.
+.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Certificate Modal functionality
+        const modal = document.getElementById('certificateModal');
+        const modalImg = document.getElementById('modalCertificateImage');
+        const closeModal = document.querySelector('.close-modal');
+        const viewButtons = document.querySelectorAll('.view-certificate-btn');
+
+        viewButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = button.getAttribute('data-img');
+                modalImg.src = imgSrc;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        modal.addEventListener('click', (e

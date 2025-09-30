@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nafees Shaikh | Data Scientist</title>
+    <title>Nafees Shaikh | Data Scientist & Analyst</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #00f0ff;  /* Tech blue */
-            --secondary-color: #0a192f; /* Navy blue */
-            --accent-color: #ff2d75;   /* Pink accent */
+            --primary-color: #00f0ff;
+            --secondary-color: #0a192f;
+            --accent-color: #ff2d75;
             --light-color: #ccd6f6;
             --dark-color: #e6f1ff;
             --text-color: #e6f1ff;
@@ -19,14 +20,15 @@
             --header-bg: #020c1b;
             --nav-bg: #0a192f;
             --skill-bg: #233554;
+            --transition: all 0.3s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Calibri', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
         }
 
         body {
@@ -36,15 +38,26 @@
             background-image:
                 radial-gradient(circle at 25% 25%, rgba(0, 240, 255, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 75% 75%, rgba(255, 45, 117, 0.1) 0%, transparent 50%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         /* Header */
         header {
             background-color: var(--header-bg);
-            padding: 4rem 0;
+            padding: 6rem 0 4rem;
             position: relative;
             overflow: hidden;
             border-bottom: 1px solid rgba(100, 255, 255, 0.1);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .header-content {
@@ -57,13 +70,13 @@
         }
 
         .profile-img {
-            width: 170px;
-            height: 250px;
-            border-radius: 30%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
             object-fit: cover;
             border: 5px solid var(--primary-color);
-            margin-bottom: 1.5rem;
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            margin-bottom: 2rem;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
             animation: float 6s ease-in-out infinite;
         }
 
@@ -74,69 +87,116 @@
         }
 
         .header-text h1 {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             margin-bottom: 0.5rem;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             animation: fadeIn 1s ease-in;
+            font-weight: 700;
         }
 
         .header-text p {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
             color: var(--text-light);
             animation: fadeIn 1.2s ease-in;
+            font-weight: 300;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
             animation: fadeIn 1.4s ease-in;
         }
 
         .social-links a {
             color: var(--light-color);
             background-color: var(--skill-bg);
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: 1px solid rgba(100, 255, 255, 0.1);
+            font-size: 1.2rem;
         }
 
         .social-links a:hover {
             background-color: var(--primary-color);
             color: var(--secondary-color);
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            outline: 2px solid var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            outline: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            transform: translateY(-3px);
         }
 
         /* Navigation */
         nav {
-            background-color: var(--nav-bg);
+            background-color: rgba(10, 25, 47, 0.95);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
             border-bottom: 1px solid rgba(100, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
         }
 
         .logo {
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--light-color);
         }
 
@@ -146,7 +206,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
@@ -154,6 +214,7 @@
             font-weight: 500;
             position: relative;
             font-size: 1.1rem;
+            text-decoration: none;
         }
 
         .nav-links a::after {
@@ -169,6 +230,15 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Sections */
@@ -195,16 +265,7 @@
             color: var(--light-color);
             display: inline-block;
             position: relative;
-        }
-
-        .section-title h2::before {
-            content: '';
-            position: absolute;
-            left: -50px;
-            top: -20px;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            font-family: 'SF Mono', monospace;
+            font-weight: 600;
         }
 
         .section-title h2::after {
@@ -214,7 +275,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: 100px;
-            height: 2px;
+            height: 3px;
             background-color: var(--primary-color);
         }
 
@@ -222,7 +283,7 @@
         .about-content {
             display: grid;
             grid-template-columns: 3fr 2fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
 
@@ -230,19 +291,20 @@
             margin-bottom: 1.5rem;
             color: var(--text-light);
             line-height: 1.8;
+            font-size: 1.1rem;
         }
 
         .skills-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            margin-top: 2.5rem;
         }
 
         .skill-category h3 {
             color: var(--light-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -251,19 +313,20 @@
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         .skill {
             background-color: var(--skill-bg);
             color: var(--primary-color);
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 5px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
             border: 1px solid rgba(100, 255, 255, 0.1);
+            font-family: 'Roboto Mono', monospace;
         }
 
         .skill i {
@@ -274,7 +337,7 @@
             position: relative;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(100, 255, 255, 0.1);
         }
 
@@ -289,11 +352,87 @@
             transform: scale(1.05);
         }
 
+        /* Experience Section */
+        .experience-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-item {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(100, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-company {
+            font-size: 1.4rem;
+            color: var(--light-color);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .experience-date {
+            color: var(--primary-color);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95rem;
+        }
+
+        .experience-role {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .experience-description {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
+        }
+
+        .experience-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .tech-item {
+            background-color: var(--skill-bg);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
         /* Projects Section */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         .project-card {
@@ -301,9 +440,12 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: 1px solid rgba(100, 255, 255, 0.1);
             position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card::before {
@@ -346,21 +488,26 @@
         }
 
         .project-info {
-            padding: 1.8rem;
+            padding: 2rem;
             position: relative;
             z-index: 2;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-info h3 {
             font-size: 1.4rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             color: var(--light-color);
+            font-weight: 600;
         }
 
         .project-info p {
             color: var(--text-light);
             margin-bottom: 1.5rem;
             line-height: 1.7;
+            flex-grow: 1;
         }
 
         .project-tech {
@@ -368,20 +515,14 @@
             flex-wrap: wrap;
             gap: 0.8rem;
             margin-bottom: 1.5rem;
-            font-family: 'SF Mono', monospace;
+            font-family: 'Roboto Mono', monospace;
             font-size: 0.8rem;
-        }
-
-        .tech-item {
-            background-color: var(--skill-bg);
-            color: var(--primary-color);
-            padding: 0.4rem 0.8rem;
-            border-radius: 5px;
         }
 
         .project-links {
             display: flex;
             gap: 1rem;
+            margin-top: auto;
         }
 
         .project-links a {
@@ -392,7 +533,8 @@
             border-radius: 5px;
             font-weight: 500;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            text-decoration: none;
         }
 
         .project-links a:first-child {
@@ -416,72 +558,6 @@
             color: var(--secondary-color);
         }
 
-        /* Experience Section */
-        .experience-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .experience-item {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(100, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background-color: var(--primary-color);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-
-        .experience-company {
-            font-size: 1.3rem;
-            color: var(--light-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-date {
-            color: var(--primary-color);
-            font-family: 'SF Mono', monospace;
-            font-size: 0.9rem;
-        }
-
-        .experience-role {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .experience-description {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .experience-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-            font-family: 'SF Mono', monospace;
-            font-size: 0.8rem;
-        }
-
         /* Education Section */
         .education-container {
             max-width: 800px;
@@ -491,7 +567,7 @@
         .education-item {
             background-color: var(--card-bg);
             border-radius: 10px;
-            padding: 2rem;
+            padding: 2.5rem;
             margin-bottom: 2rem;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(100, 255, 255, 0.1);
@@ -499,143 +575,147 @@
         }
 
         .education-degree {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--light-color);
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .education-institution {
             color: var(--primary-color);
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
 
         .education-date {
             color: var(--text-light);
-            font-family: 'SF Mono', monospace;
-            font-size: 0.9rem;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.95rem;
         }
 
         /* Certificates Section */
-.certificates-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-}
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-.certificate-card {
-    background: var(--card-bg);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(100, 255, 255, 0.1);
-    position: relative;
-}
+        .certificate-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            border: 1px solid rgba(100, 255, 255, 0.1);
+            position: relative;
+        }
 
-.certificate-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2);
-}
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2);
+        }
 
-.certificate-image {
-    height: 200px;
-    overflow: hidden;
-    border-bottom: 1px solid rgba(100, 255, 255, 0.1);
-}
+        .certificate-image {
+            height: 200px;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(100, 255, 255, 0.1);
+        }
 
-.certificate-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
 
-.certificate-card:hover .certificate-image img {
-    transform: scale(1.05);
-}
+        .certificate-card:hover .certificate-image img {
+            transform: scale(1.05);
+        }
 
-.certificate-info {
-    padding: 1.8rem;
-}
+        .certificate-info {
+            padding: 1.8rem;
+        }
 
-.certificate-info h3 {
-    margin-bottom: 0.8rem;
-    color: var(--light-color);
-    font-size: 1.2rem;
-}
+        .certificate-info h3 {
+            margin-bottom: 0.8rem;
+            color: var(--light-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
 
-.certificate-info p {
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
+        .certificate-info p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
 
-.view-certificate {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border-radius: 5px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
+        .view-certificate {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            font-weight: 500;
+            text-decoration: none;
+        }
 
-.view-certificate:hover {
-    background-color: transparent;
-    color: var(--primary-color);
-    outline: 1px solid var(--primary-color);
-}
+        .view-certificate:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            outline: 1px solid var(--primary-color);
+        }
 
-/* Modal for certificate viewing */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
+        /* Modal for certificate viewing */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-.modal-content {
-    max-width: 100%;
-    max-height: 90%;
-    position: relative;
-}
+        .modal-content {
+            max-width: 100%;
+            max-height: 90%;
+            position: relative;
+        }
 
-.modal-content img {
-    max-width: 100%;
-    max-height: 80vh;
-    border-radius: 5px;
-    object-fit: contain;
-}
+        .modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 5px;
+            object-fit: contain;
+        }
 
-.close-modal {
-    position: absolute;
-    top: -40px;
-    right: -30px;
-    color: white;
-    font-size: 2.5rem;
-    cursor: pointer;
-    z-index: 1001;
-    transition: transform 0.3s ease;
-}
+        .close-modal {
+            position: absolute;
+            top: -40px;
+            right: -30px;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            z-index: 2001;
+            transition: transform 0.3s ease;
+        }
 
-.close-modal:hover {
-    transform: rotate(90deg);
-}
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
 
         /* Contact Section */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             max-width: 1000px;
             margin: 0 auto;
         }
@@ -653,6 +733,7 @@
             margin-bottom: 2rem;
             font-size: 1.5rem;
             position: relative;
+            font-weight: 600;
         }
 
         .contact-info-box h3::after {
@@ -695,10 +776,31 @@
             color: var(--light-color);
             margin-bottom: 0.3rem;
             font-size: 1.1rem;
+            font-weight: 600;
         }
 
         .contact-text p {
             color: var(--text-light);
+        }
+
+        .resume-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+        }
+
+        .resume-btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            outline: 1px solid var(--primary-color);
+            transform: translateY(-2px);
         }
 
         .contact-form input,
@@ -712,31 +814,13 @@
             background-color: var(--skill-bg);
             color: var(--text-color);
             outline: none;
+            font-family: 'Poppins', sans-serif;
         }
 
         .contact-form textarea {
             height: 150px;
             resize: vertical;
         }
-        .resume-btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    margin-top: 0.5rem;
-}
-
-.resume-btn:hover {
-    background-color: transparent;
-    color: var(--primary-color);
-    outline: 1px solid var(--primary-color);
-    transform: translateY(-2px);
-}
 
         .submit-btn {
             background-color: var(--primary-color);
@@ -747,7 +831,7 @@
             cursor: pointer;
             font-size: 1rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -779,11 +863,14 @@
         .footer-links {
             display: flex;
             gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .footer-links a {
             color: var(--text-light);
             transition: color 0.3s ease;
+            text-decoration: none;
         }
 
         .footer-links a:hover {
@@ -798,7 +885,7 @@
         .social-links-footer a {
             color: var(--text-light);
             font-size: 1.3rem;
-            transition: color 0.3s ease;
+            transition: var(--transition);
         }
 
         .social-links-footer a:hover {
@@ -852,8 +939,22 @@
                 display: block;
             }
 
-            .section-title h2::before {
-                display: none;
+            .header-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-text p {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
         }
 
@@ -877,10 +978,37 @@
             .skills-container {
                 grid-template-columns: 1fr;
             }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo"><span>N</span>afees<span>S</span>haikh</div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Header -->
     <header>
         <div class="container header-content">
@@ -894,26 +1022,13 @@
                     <a href="https://wa.me/919975584833" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     <a href="https://datascience619.github.io/Nafeesio/" target="_blank"><i class="fas fa-globe"></i></a>
                 </div>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="NAFEES SHAIKH 114. CV.pdf" class="btn btn-secondary" target="_blank">View Resume</a>
+                </div>
             </div>
         </div>
     </header>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="container nav-container">
-            <div class="logo"><span>N</span>afees<span>S</span>haikh</div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links" id="navLinks">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
 
     <!-- About Section -->
     <section id="about" class="section">
@@ -980,7 +1095,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section bg-light">
+    <section id="experience" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>RELEVANT EXPERIENCE & VIRTUAL SIMULATIONS</h2>
@@ -1201,10 +1316,8 @@
         </div>
     </section>
 
-
-
     <!-- Education Section -->
-    <section id="education" class="section bg-light">
+    <section id="education" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Education</h2>
@@ -1229,9 +1342,8 @@
         </div>
     </section>
 
-    <!-- Add this section after the Education section and before the Contact section -->
-
-    <section id="awards" class="section bg-light">
+    <!-- Certificates Section -->
+    <section id="certificates" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Awards & Certificates</h2>
@@ -1250,17 +1362,17 @@
                 </div>
 
                 <!-- Certificate 2 -->
-<div class="certificate-card">
-    <div class="certificate-image">
-        <img src="ibm_data_analysis.jpg" alt="IBM Data Analysis Certificate">
-    </div>
-    <div class="certificate-info">
-        <h3>Data Analysis with Python</h3>
-        <p>Successfully completed <b>IBM Cognitive Class DA0101EN</b>, a course on data analysis with Python.  
-        Issued by Cognitive Class on <b>August 16, 2025</b>.</p>
-       <a href="https://courses.cognitiveclass.ai/certificates/0aedd4f2f37c4d589dce4e9851f93c42" class="view-certificate" target="_blank">View Certificate</a>
-    </div>
-</div>
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <img src="ibm_data_analysis.jpg" alt="IBM Data Analysis Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Data Analysis with Python</h3>
+                        <p>Successfully completed <b>IBM Cognitive Class DA0101EN</b>, a course on data analysis with Python.  
+                        Issued by Cognitive Class on <b>August 16, 2025</b>.</p>
+                       <a href="https://courses.cognitiveclass.ai/certificates/0aedd4f2f37c4d589dce4e9851f93c42" class="view-certificate" target="_blank">View Certificate</a>
+                    </div>
+                </div>
 
                 <!-- Certificate 3 -->
                 <div class="certificate-card">
@@ -1274,7 +1386,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 3 -->
+                <!-- Certificate 4 -->
                 <div class="certificate-card">
                     <div class="certificate-image">
                         <img src="aichat.jpg" alt="AI Chat Bot Certificate">
@@ -1286,7 +1398,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 4 -->
+                <!-- Certificate 5 -->
                 <div class="certificate-card">
                     <div class="certificate-image">
                         <img src="BI.jpg" alt="Power BI Certificate">
@@ -1298,7 +1410,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 5 -->
+                <!-- Certificate 6 -->
                 <div class="certificate-card">
                     <div class="certificate-image">
                         <img src="cyber.jpg" alt="Cybersecurity Certificate">
@@ -1310,7 +1422,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate: Data Analyst -->
+                <!-- Certificate 7 -->
                 <div class="certificate-card">
                     <div class="certificate-image">
                         <img src="DataA.jpg" alt="Data Analyst Certificate">
@@ -1322,7 +1434,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate: SQL -->
+                <!-- Certificate 8 -->
                 <div class="certificate-card">
                     <div class="certificate-image">
                         <img src="SQL.jpg" alt="SQL Certificate">
@@ -1334,7 +1446,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate: Python -->
+                <!-- Certificate 9 -->
                 <div class="certificate-card">
                     <div class="certificate-image">
                         <img src="python.jpg" alt="Python Certificate">
@@ -1346,8 +1458,7 @@
                     </div>
                 </div>
 
-
-                <!-- Certificate: Newton PowerBI Workshop -->
+                <!-- Certificate 10 -->
                 <div class="certificate-card">
                     <div class="certificate-image">
                         <img src="Data BI.jpg" alt="PowerBI Workshop Certificate">
@@ -1359,8 +1470,7 @@
                     </div>
                 </div>
 
-
-                <!-- Certificate - Introduction to Data Mining -->
+                <!-- Certificate 11 -->
                 <div class="certificate-card">
                     <div class="certificate-image">
                         <img src="Data Mining.png" alt="Introduction to Data Mining Certificate">
@@ -1372,7 +1482,7 @@
                     </div>
                 </div>
 
-                <!-- Certificate 6 -->
+                <!-- Certificate 12 -->
                 <div class="certificate-card">
                     <div class="certificate-image">
                         <img src="model1.jpg" alt="Model Making Certificate">
@@ -1430,20 +1540,20 @@
                             <div class="contact-text">
                                 <h4>Location</h4>
                                 <p>Mumbai, India</p>
-            </div>
-        </div>
-        <!-- Add this Resume Button -->
-        <div class="contact-detail">
-            <div class="contact-icon">
-                <i class="fas fa-file-alt"></i>
-            </div>
-            <div class="contact-text">
-                <h4>Resume</h4>
-                <a href="NAFEES SHAIKH 114. CV.pdf" class="resume-btn" target="_blank">View Resume</a>
-            </div>
-        </div>
-    </div>
-</div>
+                            </div>
+                        </div>
+                        <!-- Add this Resume Button -->
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Resume</h4>
+                                <a href="NAFEES SHAIKH 114. CV.pdf" class="resume-btn" target="_blank">View Resume</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="contact-info-box">
                     <h3>Send Me a Message</h3>
                     <form class="contact-form" id="contactForm">
@@ -1466,6 +1576,7 @@
                 <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
                 <a href="#education">Education</a>
+                <a href="#certificates">Certificates</a>
                 <a href="#contact">Contact</a>
             </div>
             <div class="social-links-footer">
@@ -1474,7 +1585,6 @@
                 <a href="https://www.instagram.com/sh123.nafees/" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.facebook.com/mohdnafees.shaikh.906" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://wa.me/919975584833" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
             </div>
             <p class="copyright">© 2025 Nafees Shaikh. All rights reserved.</p>
         </div>
@@ -1556,34 +1666,34 @@
         });
 
         // Certificate Modal functionality
-const modal = document.getElementById('certificateModal');
-const modalImg = document.getElementById('modalCertificateImage');
-const closeModal = document.querySelector('.close-modal');
-const viewButtons = document.querySelectorAll('.view-certificate-btn');
+        const modal = document.getElementById('certificateModal');
+        const modalImg = document.getElementById('modalCertificateImage');
+        const closeModal = document.querySelector('.close-modal');
+        const viewButtons = document.querySelectorAll('.view-certificate-btn');
 
-viewButtons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const imgSrc = button.getAttribute('data-img');
-        if (imgSrc) {
-            modalImg.src = imgSrc;
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-    });
-});
+        viewButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imgSrc = button.getAttribute('data-img');
+                if (imgSrc) {
+                    modalImg.src = imgSrc;
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
 
-closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-});
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
 
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-});
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
 
         // Contact form submission
         const contactForm = document.getElementById('contactForm');
@@ -1616,4 +1726,3 @@ modal.addEventListener('click', (e) => {
     </script>
 </body>
 </html>
-

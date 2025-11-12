@@ -312,12 +312,12 @@
             background-color: var(--primary-color);
         }
 
-        /* About Section */
+        /* About Section - FIXED LAYOUT */
         .about-content {
             display: grid;
             grid-template-columns: 3fr 2fr;
             gap: 4rem;
-            align-items: center;
+            align-items: start;
         }
 
         .about-text p {
@@ -332,6 +332,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 2.5rem;
+            grid-column: 1 / -1;
         }
 
         .skill-category h3 {
@@ -378,6 +379,7 @@
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(100, 255, 255, 0.1);
+            height: fit-content;
         }
 
         .about-image img {
@@ -385,10 +387,12 @@
             height: auto;
             display: block;
             transition: transform 0.5s ease;
+            transform: scale(1.1); /* Zoom effect */
+            filter: brightness(1.05) contrast(1.1); /* Enhanced clarity */
         }
 
         .about-image:hover img {
-            transform: scale(1.05);
+            transform: scale(1.15);
         }
 
         /* Experience Section */
@@ -974,12 +978,24 @@
         @media (max-width: 992px) {
             .about-content {
                 grid-template-columns: 1fr;
+                grid-template-areas: 
+                    "image"
+                    "text"
+                    "skills";
             }
 
             .about-image {
-                order: -1;
-                max-width: 500px;
-                margin: 0 auto;
+                grid-area: image;
+                max-width: 400px;
+                margin: 0 auto 2rem;
+            }
+
+            .about-text {
+                grid-area: text;
+            }
+
+            .skills-container {
+                grid-area: skills;
             }
 
             .contact-container {
@@ -1035,6 +1051,10 @@
 
             .mobile-menu-btn.active .fa-bars::before {
                 content: "\f00d";
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1136,60 +1156,61 @@
                         When I'm not analyzing data, you can find me exploring new technologies, contributing to open-source projects,
                         or participating in data science competitions.
                     </p>
+                </div>
+                
+                <div class="about-image" data-aos="fade-left">
+                    <img src="nafees profile.png" alt="Nafees Shaikh">
+                </div>
 
-                    <div class="skills-container">
-                        <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                            <h3><i class="fas fa-code"></i> Programming</h3>
-                            <div class="skills">
-                                <span class="skill"><i class="fab fa-python"></i> Python</span>
-                                <span class="skill"><i class="fas fa-database"></i> SQL</span>
-                            </div>
-                        </div>
-
-                        <div class="skill-category" data-aos="fade-up" data-aos-delay="150">
-                            <h3><i class="fas fa-chart-line"></i> Data Visualization</h3>
-                            <div class="skills">
-                                <span class="skill"><i class="fas fa-chart-bar"></i> Tableau</span>
-                                <span class="skill"><i class="fas fa-chart-pie"></i> Power BI</span>
-                                <span class="skill"><i class="fas fa-file-excel"></i> Excel</span>
-                            </div>
-                        </div>
-
-                        <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                            <h3><i class="fas fa-cogs"></i> Data Analysis & Machine Learning</h3>
-                            <div class="skills">
-                                <span class="skill"><i class="fas fa-broom"></i> Data Cleaning</span>
-                                <span class="skill"><i class="fas fa-project-diagram"></i> Data Modeling</span>
-                                <span class="skill"><i class="fas fa-calculator"></i> Statistical Analysis</span>
-                                <span class="skill"><i class="fas fa-robot"></i> Predictive Modeling</span>
-                                <span class="skill"><i class="fas fa-brain"></i> Machine Learning</span>
-                                <span class="skill"><i class="fas fa-language"></i> NLP</span>
-                                <span class="skill"><i class="fas fa-network-wired"></i> CNN</span>
-                            </div>
-                        </div>
-
-                        <div class="skill-category" data-aos="fade-up" data-aos-delay="250">
-                            <h3><i class="fas fa-lightbulb"></i> Business Intelligence</h3>
-                            <div class="skills">
-                                <span class="skill"><i class="fas fa-tachometer-alt"></i> Dashboard Development</span>
-                                <span class="skill"><i class="fas fa-chart-line"></i> KPI Development</span>
-                                <span class="skill"><i class="fas fa-book"></i> Data Storytelling</span>
-                            </div>
-                        </div>
-
-                        <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                            <h3><i class="fas fa-user-tie"></i> Soft Skills</h3>
-                            <div class="skills">
-                                <span class="skill"><i class="fas fa-lightbulb"></i> Problem Solving</span>
-                                <span class="skill"><i class="fas fa-sync-alt"></i> Adaptability</span>
-                                <span class="skill"><i class="fas fa-brain"></i> Critical Thinking</span>
-                                <span class="skill"><i class="fas fa-comments"></i> Communication</span>
-                            </div>
+                <div class="skills-container">
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                        <h3><i class="fas fa-code"></i> Programming</h3>
+                        <div class="skills">
+                            <span class="skill"><i class="fab fa-python"></i> Python</span>
+                            <span class="skill"><i class="fas fa-database"></i> SQL</span>
                         </div>
                     </div>
-                </div>
-                <div class="about-image" data-aos="fade-left">
-                    <img src="nafeees11.jpg" alt="Nafees Shaikh">
+
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="150">
+                        <h3><i class="fas fa-chart-line"></i> Data Visualization</h3>
+                        <div class="skills">
+                            <span class="skill"><i class="fas fa-chart-bar"></i> Tableau</span>
+                            <span class="skill"><i class="fas fa-chart-pie"></i> Power BI</span>
+                            <span class="skill"><i class="fas fa-file-excel"></i> Excel</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                        <h3><i class="fas fa-cogs"></i> Data Analysis & Machine Learning</h3>
+                        <div class="skills">
+                            <span class="skill"><i class="fas fa-broom"></i> Data Cleaning</span>
+                            <span class="skill"><i class="fas fa-project-diagram"></i> Data Modeling</span>
+                            <span class="skill"><i class="fas fa-calculator"></i> Statistical Analysis</span>
+                            <span class="skill"><i class="fas fa-robot"></i> Predictive Modeling</span>
+                            <span class="skill"><i class="fas fa-brain"></i> Machine Learning</span>
+                            <span class="skill"><i class="fas fa-language"></i> NLP</span>
+                            <span class="skill"><i class="fas fa-network-wired"></i> CNN</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="250">
+                        <h3><i class="fas fa-lightbulb"></i> Business Intelligence</h3>
+                        <div class="skills">
+                            <span class="skill"><i class="fas fa-tachometer-alt"></i> Dashboard Development</span>
+                            <span class="skill"><i class="fas fa-chart-line"></i> KPI Development</span>
+                            <span class="skill"><i class="fas fa-book"></i> Data Storytelling</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                        <h3><i class="fas fa-user-tie"></i> Soft Skills</h3>
+                        <div class="skills">
+                            <span class="skill"><i class="fas fa-lightbulb"></i> Problem Solving</span>
+                            <span class="skill"><i class="fas fa-sync-alt"></i> Adaptability</span>
+                            <span class="skill"><i class="fas fa-brain"></i> Critical Thinking</span>
+                            <span class="skill"><i class="fas fa-comments"></i> Communication</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1833,4 +1854,3 @@
     </script>
 </body>
 </html>
-

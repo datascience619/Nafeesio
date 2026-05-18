@@ -2,1858 +2,689 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nafees Shaikh | Data Scientist & Analyst</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Nafees Shaikh | Data Scientist & Analyst | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #00f0ff;
-            --secondary-color: #0a192f;
-            --accent-color: #ff2d75;
-            --light-color: #ccd6f6;
-            --dark-color: #e6f1ff;
-            --text-color: #e6f1ff;
-            --text-light: #8892b0;
-            --bg-color: #0a192f;
-            --card-bg: #112240;
-            --header-bg: #020c1b;
-            --nav-bg: #0a192f;
-            --skill-bg: #233554;
-            --transition: all 0.3s ease;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --bg-deep: #0B1120;
+            --bg-card: #111827;
+            --bg-elevated: #1F2937;
+            --primary-glow: #38BDF8;
+            --primary: #0EA5E9;
+            --accent: #F97316;
+            --accent-glow: #FB923C;
+            --text-light: #F3F4F6;
+            --text-dim: #9CA3AF;
+            --border-dim: rgba(56, 189, 248, 0.2);
+            --gradient-1: linear-gradient(135deg, #0EA5E9 0%, #8B5CF6 100%);
+            --shadow-lg: 0 20px 35px -12px rgba(0, 0, 0, 0.5);
         }
 
         body {
-            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-light);
             line-height: 1.6;
-            background-color: var(--bg-color);
-            background-image:
-                radial-gradient(circle at 25% 25%, rgba(0, 240, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(255, 45, 117, 0.1) 0%, transparent 50%);
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Canvas Data Flow Background */
+        #dataCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
         }
 
         .container {
-            width: 90%;
-            max-width: 1200px;
+            position: relative;
+            z-index: 2;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
 
-        /* Header */
+        /* Navbar */
+        nav {
+            background: rgba(11, 17, 32, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-dim);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--accent); background: none; -webkit-background-clip: unset; background-clip: unset; }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: var(--text-dim);
+            font-weight: 500;
+            text-decoration: none;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
         header {
-            background-color: var(--header-bg);
-            padding: 6rem 0 4rem;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(100, 255, 255, 0.1);
             min-height: 100vh;
             display: flex;
             align-items: center;
+            padding-top: 80px;
+            position: relative;
         }
-
         .header-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            position: relative;
-            z-index: 2;
         }
-
         .profile-img {
-            width: 220px;
-            height: 300px;
-            border-radius: 30%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
             object-fit: cover;
-            border: 5px solid var(--primary-color);
-            margin-bottom: 2rem;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
-            animation: float 6s ease-in-out infinite;
+            border: 3px solid var(--primary);
+            box-shadow: 0 0 35px rgba(14, 165, 233, 0.4);
+            margin-bottom: 1.8rem;
+            transition: transform 0.4s;
         }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
+        .profile-img:hover { transform: scale(1.03); }
         .header-text h1 {
             font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            font-weight: 800;
+            background: linear-gradient(125deg, #FFF, var(--primary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-weight: 700;
         }
-
         .header-text p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--text-light);
-            font-weight: 300;
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 1rem auto;
         }
-
         .typewriter {
-            display: inline-block;
-            position: relative;
-            font-size: 1.5rem;
-            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary);
+            margin: 1rem 0;
             font-weight: 500;
-            margin-bottom: 2rem;
         }
-
-        .typewriter::after {
-            content: '|';
-            position: absolute;
-            right: -8px;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
         .social-links {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+            justify-content: center;
         }
-
         .social-links a {
-            color: var(--light-color);
-            background-color: var(--skill-bg);
-            width: 50px;
-            height: 50px;
+            background: var(--bg-elevated);
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
-            border: 1px solid rgba(100, 255, 255, 0.1);
-            font-size: 1.2rem;
+            color: var(--text-light);
+            font-size: 1.3rem;
+            transition: 0.3s;
+            border: 1px solid var(--border-dim);
         }
-
         .social-links a:hover {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+            background: var(--primary);
+            color: #0B1120;
+            transform: translateY(-5px);
         }
-
         .cta-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
             margin-top: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
-
         .btn {
             padding: 0.8rem 2rem;
-            border-radius: 5px;
+            border-radius: 40px;
             font-weight: 600;
+            transition: 0.2s;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
+            gap: 0.6rem;
         }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
         .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
+            background: var(--primary);
+            color: #0B1120;
+            box-shadow: 0 5px 12px rgba(14, 165, 233, 0.3);
         }
-
         .btn-primary:hover {
-            background-color: transparent;
-            color: var(--primary-color);
-            outline: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary);
+            outline: 1px solid var(--primary);
             transform: translateY(-3px);
         }
-
         .btn-secondary {
-            background-color: transparent;
-            color: var(--primary-color);
-            outline: 2px solid var(--primary-color);
+            border: 1px solid var(--primary);
+            color: var(--primary);
         }
-
         .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
+            background: var(--primary);
+            color: #0B1120;
             transform: translateY(-3px);
         }
 
-        /* Navigation */
-        nav {
-            background-color: rgba(10, 25, 47, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(100, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-        }
-
-        .nav-container {
+        /* Stats Bar */
+        .stats-grid {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 0;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 3rem 0 1rem;
         }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.8rem;
-            color: var(--light-color);
+        .stat-item {
+            text-align: center;
+            background: rgba(31, 41, 55, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            border: 1px solid var(--border-dim);
         }
-
-        .logo span {
-            color: var(--primary-color);
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            font-family: monospace;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .nav-links a {
-            color: var(--light-color);
-            font-weight: 500;
-            position: relative;
-            font-size: 1.1rem;
-            text-decoration: none;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light-color);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1001;
-        }
+        .stat-label { font-size: 0.9rem; color: var(--text-dim); }
 
         /* Sections */
         section {
-            padding: 6rem 0;
+            padding: 5rem 0;
         }
-
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
+            margin-bottom: 3rem;
         }
-
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--light-color);
+            font-weight: 700;
             display: inline-block;
-            position: relative;
-            font-weight: 600;
+            background: linear-gradient(135deg, #FFF, var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
         }
 
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-
-        /* About Section - FIXED LAYOUT */
+        /* About */
         .about-content {
             display: grid;
-            grid-template-columns: 3fr 2fr;
-            gap: 4rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: start;
         }
-
         .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            font-size: 1rem;
         }
-
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid var(--border-dim);
+            transition: 0.4s;
+            box-shadow: var(--shadow-lg);
+        }
         .skills-container {
+            grid-column: span 2;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2.5rem;
-            grid-column: 1 / -1;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
         }
-
         .skill-category h3 {
-            color: var(--light-color);
-            margin-bottom: 1.2rem;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
-
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.7rem;
         }
-
         .skill {
-            background-color: var(--skill-bg);
-            color: var(--primary-color);
-            padding: 0.6rem 1.2rem;
-            border-radius: 5px;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: 1px solid rgba(100, 255, 255, 0.1);
-            font-family: 'Roboto Mono', monospace;
-            transition: var(--transition);
+            background: var(--bg-elevated);
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            font-family: monospace;
+            color: var(--primary);
+            border: 1px solid var(--border-dim);
+            transition: 0.2s;
         }
+        .skill:hover { transform: translateY(-2px); background: var(--primary); color: #0B1120; }
 
-        .skill:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.2);
-        }
-
-        .skill i {
-            font-size: 1rem;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(100, 255, 255, 0.1);
-            height: fit-content;
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-            transform: scale(1.1); /* Zoom effect */
-            filter: brightness(1.05) contrast(1.1); /* Enhanced clarity */
-        }
-
-        .about-image:hover img {
-            transform: scale(1.15);
-        }
-
-        /* Experience Section */
-        .experience-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .experience-item {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(100, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .experience-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2);
-        }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
+        /* Cards (Experience, Projects) */
+        .experience-item, .project-card, .education-item, .certificate-card {
+            background: var(--bg-card);
+            border-radius: 1.2rem;
+            padding: 1.8rem;
+            transition: all 0.3s;
+            border: 1px solid var(--border-dim);
+            backdrop-filter: blur(2px);
             height: 100%;
-            background-color: var(--primary-color);
         }
-
+        .experience-item:hover, .project-card:hover, .certificate-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 30px -15px rgba(14, 165, 233, 0.2);
+        }
         .experience-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 1.2rem;
             flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
-
-        .experience-company {
-            font-size: 1.4rem;
-            color: var(--light-color);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .experience-date {
-            color: var(--primary-color);
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.95rem;
-        }
-
-        .experience-role {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
-
-        .experience-description {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 1.2rem;
-        }
-
-        .experience-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.85rem;
-        }
-
+        .experience-company { font-size: 1.4rem; font-weight: 700; }
+        .experience-date { color: var(--primary); font-family: monospace; }
+        .experience-role { color: var(--text-dim); font-weight: 500; margin-bottom: 1rem; }
+        .experience-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
         .tech-item {
-            background-color: var(--skill-bg);
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            transition: var(--transition);
+            background: rgba(14, 165, 233, 0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-family: monospace;
         }
 
-        .tech-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 240, 255, 0.2);
-        }
-
-        /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
         }
-
-        .project-card {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-            border: 1px solid rgba(100, 255, 255, 0.1);
-            position: relative;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, transparent 100%);
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
         .project-image {
-            height: 200px;
+            height: 180px;
             overflow: hidden;
-            position: relative;
+            border-radius: 0.8rem;
+            margin-bottom: 1rem;
         }
-
         .project-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: 0.4s;
         }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
-        }
-
-        .project-info {
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-info h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--light-color);
+        .project-card:hover .project-image img { transform: scale(1.05); }
+        .project-info h3 { font-size: 1.3rem; margin-bottom: 0.7rem; }
+        .project-links { display: flex; gap: 1rem; margin-top: 1rem; }
+        .project-links a {
+            text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            background: var(--primary);
+            color: #0B1120;
         }
+        .project-links a:last-child { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
 
-        .project-info p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-            flex-grow: 1;
+        /* Certificates grid */
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
         }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 1.5rem;
-            font-family: 'Roboto Mono', monospace;
+        .certificate-image {
+            height: 150px;
+            overflow: hidden;
+            border-radius: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        .certificate-image img { width: 100%; height: 100%; object-fit: cover; }
+        .view-certificate {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.4rem 1rem;
+            background: var(--primary);
+            border-radius: 30px;
+            color: #0B1120;
+            font-weight: 600;
+            text-decoration: none;
             font-size: 0.8rem;
         }
 
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: auto;
-        }
-
-        .project-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            border-radius: 5px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .project-links a:first-child {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-        }
-
-        .project-links a:first-child:hover {
-            background-color: transparent;
-            color: var(--primary-color);
-            outline: 1px solid var(--primary-color);
-        }
-
-        .project-links a:last-child {
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-
-        .project-links a:last-child:hover {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-        }
-
-        /* Education Section */
-        .education-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .education-item {
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(100, 255, 255, 0.1);
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .education-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2);
-        }
-
-        .education-degree {
-            font-size: 1.4rem;
-            color: var(--light-color);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .education-institution {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .education-date {
-            color: var(--text-light);
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.95rem;
-        }
-
-        /* Certificates Section */
-        .certificates-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .certificate-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-            border: 1px solid rgba(100, 255, 255, 0.1);
-            position: relative;
-        }
-
-        .certificate-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 240, 255, 0.2);
-        }
-
-        .certificate-image {
-            height: 200px;
-            overflow: hidden;
-            border-bottom: 1px solid rgba(100, 255, 255, 0.1);
-        }
-
-        .certificate-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .certificate-card:hover .certificate-image img {
-            transform: scale(1.05);
-        }
-
-        .certificate-info {
-            padding: 1.8rem;
-        }
-
-        .certificate-info h3 {
-            margin-bottom: 0.8rem;
-            color: var(--light-color);
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .certificate-info p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .view-certificate {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            border-radius: 5px;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        .view-certificate:hover {
-            background-color: transparent;
-            color: var(--primary-color);
-            outline: 1px solid var(--primary-color);
-        }
-
-        /* Modal for certificate viewing */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            max-width: 100%;
-            max-height: 90%;
-            position: relative;
-        }
-
-        .modal-content img {
-            max-width: 100%;
-            max-height: 80vh;
-            border-radius: 5px;
-            object-fit: contain;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: -40px;
-            right: -30px;
-            color: white;
-            font-size: 2.5rem;
-            cursor: pointer;
-            z-index: 2001;
-            transition: transform 0.3s ease;
-        }
-
-        .close-modal:hover {
-            transform: rotate(90deg);
-        }
-
-        /* Contact Section */
+        /* Contact */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            gap: 3rem;
         }
-
         .contact-info-box {
-            background-color: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(100, 255, 255, 0.1);
+            background: var(--bg-card);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid var(--border-dim);
         }
-
-        .contact-info-box h3 {
-            color: var(--light-color);
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
-            position: relative;
-            font-weight: 600;
-        }
-
-        .contact-info-box h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--primary-color);
-        }
-
-        .contact-details {
-            display: flex;
-            flex-direction: column;
-            gap: 1.8rem;
-        }
-
         .contact-detail {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
         }
-
         .contact-icon {
-            width: 60px;
-            height: 60px;
-            background-color: var(--skill-bg);
-            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            background: var(--bg-elevated);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-            border: 1px solid rgba(100, 255, 255, 0.1);
-            transition: var(--transition);
+            font-size: 1.3rem;
+            color: var(--primary);
         }
-
-        .contact-detail:hover .contact-icon {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            transform: scale(1.1);
-        }
-
-        .contact-text h4 {
-            color: var(--light-color);
-            margin-bottom: 0.3rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .contact-text p {
-            color: var(--text-light);
-        }
-
-        .resume-btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: var(--transition);
-            margin-top: 0.5rem;
-        }
-
-        .resume-btn:hover {
-            background-color: transparent;
-            color: var(--primary-color);
-            outline: 1px solid var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
+        .contact-form input, .contact-form textarea {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--skill-bg);
-            border-radius: 5px;
-            font-size: 1rem;
-            background-color: var(--skill-bg);
-            color: var(--text-color);
-            outline: none;
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
-        }
-
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .submit-btn:hover {
-            background-color: transparent;
-            color: var(--primary-color);
-            outline: 1px solid var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--header-bg);
+            padding: 0.9rem;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-dim);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
             color: white;
+            font-family: inherit;
+        }
+        .submit-btn {
+            background: var(--primary);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.5);
             text-align: center;
-            padding: 3rem 0;
-            border-top: 1px solid rgba(100, 255, 255, 0.1);
+            padding: 2rem;
+            border-top: 1px solid var(--border-dim);
         }
 
-        .footer-content {
-            display: flex;
-            flex-direction: column;
+        /* modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
             align-items: center;
-            gap: 2rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
             justify-content: center;
         }
+        .modal-content img { max-width: 90%; max-height: 80vh; border-radius: 1rem; }
 
-        .footer-links a {
-            color: var(--text-light);
-            transition: color 0.3s ease;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .social-links-footer {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .social-links-footer a {
-            color: var(--text-light);
-            font-size: 1.3rem;
-            transition: var(--transition);
-        }
-
-        .social-links-footer a:hover {
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 2rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                grid-template-areas: 
-                    "image"
-                    "text"
-                    "skills";
-            }
-
-            .about-image {
-                grid-area: image;
-                max-width: 400px;
-                margin: 0 auto 2rem;
-            }
-
-            .about-text {
-                grid-area: text;
-            }
-
-            .skills-container {
-                grid-area: skills;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
+        /* responsiveness */
+        @media (max-width: 980px) {
+            .about-content { grid-template-columns: 1fr; }
+            .skills-container { grid-column: span 1; }
+            .contact-container { grid-template-columns: 1fr; }
             .nav-links {
                 position: fixed;
-                top: 0;
-                left: -100%;
-                width: 80%;
+                top: 0; left: -100%;
+                width: 70%;
                 height: 100vh;
-                background-color: var(--nav-bg);
+                background: #0B1120;
                 flex-direction: column;
-                align-items: center;
-                padding: 6rem 0;
-                transition: all 0.3s ease;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 6rem 2rem;
+                transition: 0.3s;
                 z-index: 999;
             }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .header-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .header-text p {
-                font-size: 1.2rem;
-            }
-
-            .typewriter {
-                font-size: 1.2rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .mobile-menu-btn.active .fa-bars::before {
-                content: "\f00d";
-            }
-
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
+            .nav-links.active { left: 0; }
+            .mobile-menu-btn { display: block; }
+            .container { padding: 0 1.5rem; }
+            .header-text h1 { font-size: 2.5rem; }
         }
-
-        @media (max-width: 576px) {
-            .header-text h1 {
-                font-size: 2.2rem;
-            }
-
-            .header-text p {
-                font-size: 1.1rem;
-            }
-
-            .typewriter {
-                font-size: 1.1rem;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-header {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .project-links {
-                flex-direction: column;
-            }
+        @media (max-width: 560px) {
+            .stats-grid { gap: 1rem; }
+            .stat-item { padding: 0.4rem 1rem; }
+            .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container nav-container">
-            <div class="logo"><span>N</span>afees<span>S</span>haikh</div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links" id="navLinks">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-                <a href="#certificates">Certificates</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <img src="nafees profile.png" alt="Nafees Shaikh" class="profile-img">
-            <div class="header-text">
-                <h1>Nafees Shaikh</h1>
-                <p>Data Science Graduate | Python & SQL Developer | Aspiring Data Analyst • Data Engineer • Business Analyst</p>
-                <div class="typewriter" id="typewriter"></div>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/nafees-shaikh-441405251" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/datascience619" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://wa.me/919975584833" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                </div>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="NAFEES SHAIKH 114. CV.pdf" class="btn btn-secondary" target="_blank">View Resume</a>
-                </div>
-            </div>
-        </div>
-    </header>
+<canvas id="dataCanvas"></canvas>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <p>
-                     👋 Hi, I’m Nafees Shaikh
-
-I’m a passionate and detail-oriented Data Science graduate with a B.Sc. in Data Science and hands-on experience in transforming complex datasets into clear, actionable insights. Skilled in Python, SQL, Power BI, Tableau, and Excel, I specialize in developing interactive dashboards, automation tools, and machine learning applications that solve real-world business problems.
-
-From building a Smart Inventory Management System that automated stock tracking and demand forecasting, to creating a Fingerprint & Signature Recognition System for biometric authentication, I enjoy leveraging data and technology to streamline operations and enhance decision-making.
-
-I’ve also completed virtual job simulations with Deloitte, Tata Group, and Quantium, gaining practical exposure to data analytics, visualization, and commercial insights. My work has been recognized with a 3rd Prize at a national-level model-making competition for developing an AI-based authentication system using Python and OpenCV.
-
-Driven by curiosity and creativity, I’m always eager to explore new technologies, analyze patterns, and collaborate on data-driven projects that create meaningful business impact.
-
-🧰 Tools & Technologies: Python | SQL | Power BI | Tableau | Excel
-💡 Areas of Interest: Data Visualization | Business Intelligence | Machine Learning | Automation | NLP
-                    </p>
-                </div>
-                
-                <div class="about-image" data-aos="fade-left">
-                    <img src="nafeees11.jpg" alt="Nafees Shaikh">
-                </div>
-
-                <div class="skills-container">
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                        <h3><i class="fas fa-code"></i> Programming</h3>
-                        <div class="skills">
-                            <span class="skill"><i class="fab fa-python"></i> Python</span>
-                            <span class="skill"><i class="fas fa-database"></i> SQL</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="150">
-                        <h3><i class="fas fa-chart-line"></i> Data Visualization</h3>
-                        <div class="skills">
-                            <span class="skill"><i class="fas fa-chart-bar"></i> Tableau</span>
-                            <span class="skill"><i class="fas fa-chart-pie"></i> Power BI</span>
-                            <span class="skill"><i class="fas fa-file-excel"></i> Excel</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                        <h3><i class="fas fa-cogs"></i> Data Analysis & Machine Learning</h3>
-                        <div class="skills">
-                            <span class="skill"><i class="fas fa-broom"></i> Data Cleaning</span>
-                            <span class="skill"><i class="fas fa-project-diagram"></i> Data Modeling</span>
-                            <span class="skill"><i class="fas fa-calculator"></i> Statistical Analysis</span>
-                            <span class="skill"><i class="fas fa-robot"></i> Predictive Modeling</span>
-                            <span class="skill"><i class="fas fa-brain"></i> Machine Learning</span>
-                            <span class="skill"><i class="fas fa-language"></i> NLP</span>
-                            <span class="skill"><i class="fas fa-network-wired"></i> CNN</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="250">
-                        <h3><i class="fas fa-lightbulb"></i> Business Intelligence</h3>
-                        <div class="skills">
-                            <span class="skill"><i class="fas fa-tachometer-alt"></i> Dashboard Development</span>
-                            <span class="skill"><i class="fas fa-chart-line"></i> KPI Development</span>
-                            <span class="skill"><i class="fas fa-book"></i> Data Storytelling</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                        <h3><i class="fas fa-user-tie"></i> Soft Skills</h3>
-                        <div class="skills">
-                            <span class="skill"><i class="fas fa-lightbulb"></i> Problem Solving</span>
-                            <span class="skill"><i class="fas fa-sync-alt"></i> Adaptability</span>
-                            <span class="skill"><i class="fas fa-brain"></i> Critical Thinking</span>
-                            <span class="skill"><i class="fas fa-comments"></i> Communication</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>RELEVANT EXPERIENCE & VIRTUAL SIMULATIONS</h2>
-            </div>
-            <div class="experience-container">
-                <!-- Experience 1 -->
-                <div class="experience-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="experience-header">
-                        <div>
-                            <h3 class="experience-company">Deloitte Australia</h3>
-                            <p class="experience-role">Data Analytics Job Simulation</p>
-                        </div>
-                        <span class="experience-date">June 2025</span>
-                    </div>
-                    <div class="experience-description">
-                        <p>Completed a forensic data analytics simulation, analyzing financial records and performing Excel-based data classification.</p>
-                        <p>Developed an interactive Tableau dashboard to identify patterns and draw business conclusions.</p>
-                        <p>Applied investigative techniques to detect anomalies and deliver actionable insights to stakeholders.</p>
-                    </div>
-                    <div class="experience-tech">
-                        <span class="tech-item">Tableau</span>
-                        <span class="tech-item">Excel</span>
-                        <span class="tech-item">Data Analysis</span>
-                        <span class="tech-item">Forensic Analytics</span>
-                    </div>
-                </div>
-
-                <!-- Experience 2 -->
-                <div class="experience-item" data-aos="fade-up" data-aos-delay="150">
-                    <div class="experience-header">
-                        <div>
-                            <h3 class="experience-company">Quantum</h3>
-                            <p class="experience-role">Data Analytics & Commercial Insights Simulation</p>
-                        </div>
-                        <span class="experience-date">May 2025</span>
-                    </div>
-                    <div class="experience-description">
-                        <p>Analyzed customer transaction datasets to extract key commercial insights and inform strategic planning.</p>
-                        <p>Conducted uplift testing using benchmark store data to evaluate trial store performance.</p>
-                        <p>Delivered a detailed report to the Category Manager with recommendations for data-driven decision-making.</p>
-                    </div>
-                    <div class="experience-tech">
-                        <span class="tech-item">Data Analysis</span>
-                        <span class="tech-item">Commercial Insights</span>
-                        <span class="tech-item">Uplift Testing</span>
-                        <span class="tech-item">Strategic Planning</span>
-                    </div>
-                </div>
-
-                <!-- Experience 3 -->
-                <div class="experience-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="experience-header">
-                        <div>
-                            <h3 class="experience-company">Tata Consultancy Services</h3>
-                            <p class="experience-role">Data Visualization Simulation</p>
-                        </div>
-                        <span class="experience-date">May 2025</span>
-                    </div>
-                    <div class="experience-description">
-                        <p>Designed compelling data visualizations to support strategic decisions by senior leadership.</p>
-                        <p>Formulated key discussion points based on trends and presented visual narratives for business meetings.</p>
-                        <p>Communicated complex insights through executive-level dashboards using Power BI and Tableau.</p>
-                    </div>
-                    <div class="experience-tech">
-                        <span class="tech-item">Power BI</span>
-                        <span class="tech-item">Tableau</span>
-                        <span class="tech-item">Data Visualization</span>
-                        <span class="tech-item">Business Intelligence</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-image">
-                        <img src="inventory.PNG" alt="Smart Inventory Management System">
-                    </div>
-                    <div class="project-info">
-                        <h3>Smart Inventory Management System</h3>
-                        <p>
-                            Built a desktop app for stock tracking, sales processing, and reorder alerts using a custom SQLite database.
-                            Implemented linear regression for demand forecasting and automated reorder when stock fell below threshold.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-item">Python</span>
-                            <span class="tech-item">Tkinter</span>
-                            <span class="tech-item">SQLite</span>
-                            <span class="tech-item">Scikit-learn</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/datascience619/Inventory-management" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="project-image">
-                        <img src="covid.PNG" alt="COVID-19 Global Tracker Dashboard">
-                    </div>
-                    <div class="project-info">
-                        <h3>COVID-19 Global Tracker Dashboard</h3>
-                        <p>
-                            Engineered comprehensive data visualization dashboard monitoring pandemic trends across 195+ countries.
-                            Implemented advanced filtering and drill-down capabilities for date ranges, regions, and comparative analysis.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-item">Tableau</span>
-                            <span class="tech-item">Data Visualization</span>
-                            <span class="tech-item">Dashboard</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://public.tableau.com/app/profile/nafees.shaikh5920/viz/covid19_17468123173620/Dashboard1?publish=yes" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <img src="netflix.PNG" alt="Netflix Content Intelligence Dashboard">
-                    </div>
-                    <div class="project-info">
-                        <h3>Netflix Content Intelligence Dashboard</h3>
-                        <p>
-                            Developed interactive business intelligence solution analyzing 8,000+ content library entries.
-                            Designed advanced visualizations including heat maps, geographic analysis, and temporal trend comparisons.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-item">Tableau</span>
-                            <span class="tech-item">Business Intelligence</span>
-                            <span class="tech-item">Data Analysis</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://public.tableau.com/app/profile/nafees.shaikh5920/viz/netflix_17468124620910/Netflix?publish=yes" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="250">
-                    <div class="project-image">
-                        <img src="summarizer.JPG" alt="Text Summarization & Translation Tool">
-                    </div>
-                    <div class="project-info">
-                        <h3>Text Summarization & Translation Tool</h3>
-                        <p>
-                            Built a GUI tool to summarize, translate, and convert text/audio from PDF, DOCX, and TXT files.
-                            Integrated multiple NLP summarization algorithms with multi-language support.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-item">Python</span>
-                            <span class="tech-item">NLP</span>
-                            <span class="tech-item">Tkinter</span>
-                            <span class="tech-item">Google Translate API</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/datascience619/Text-summarisation" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image">
-                        <img src="agribot.JPG" alt="Agricultural Assistant Tool">
-                    </div>
-                    <div class="project-info">
-                        <h3>Agricultural Assistant Tool</h3>
-                        <p>
-                            Recommended crops based on soil parameters using a trained Random Forest model.
-                            Detected plant diseases from leaf images via a CNN-based model trained on the PlantVillage dataset.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-item">Python</span>
-                            <span class="tech-item">Machine Learning</span>
-                            <span class="tech-item">CNN</span>
-                            <span class="tech-item">Tkinter</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/datascience619/Agribot/tree/main" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="350">
-                    <div class="project-image">
-                        <img src="fingerpring.jpg" alt="Fingerprint & Signature Recognition System">
-                    </div>
-                    <div class="project-info">
-                        <h3>Fingerprint & Signature Recognition</h3>
-                        <p>
-                            Developed a biometric verification system using ORB feature matching for image-based identity authentication.
-                            Created a user-friendly GUI with mode switching and dynamic image comparison.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-item">Python</span>
-                            <span class="tech-item">OpenCV</span>
-                            <span class="tech-item">Computer Vision</span>
-                            <span class="tech-item">Tkinter</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/datascience619/Authentication" target="_blank"><i class="fab fa-github"></i> Code</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Education</h2>
-            </div>
-            <div class="education-container">
-                <div class="education-item" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="education-degree">Bachelor of Science in Data Science</h3>
-                    <p class="education-institution">Reena Mehta College, Mumbai University</p>
-                    <p class="education-date">2022 – 2025</p>
-                </div>
-                <div class="education-item" data-aos="fade-up" data-aos-delay="150">
-                    <h3 class="education-degree">Higher Secondary Certificate (Science)</h3>
-                    <p class="education-institution">New Era Junior College, Bhiwandi</p>
-                    <p class="education-date">2020 – 2022</p>
-                </div>
-                <div class="education-item" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="education-degree">Secondary School Certificate (SSC)</h3>
-                    <p class="education-institution">Rafiuddin Fakhi Boys High School, Bhiwandi</p>
-                    <p class="education-date">2019 – 2020</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section id="certificates" class="section">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Awards & Certificates</h2>
-            </div>
-            <div class="certificates-container">
-                <!-- Certificate 1 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="certificate-image">
-                        <img src="basicpy.jpg" alt="Python Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Basics of Python – Cambridge</h3>
-                        <p>Certified by Cambridge through Uniathena for completing foundational Python programming course.</p>
-                        <a href="https://uniathena.com/verify/certificate?certID=5107-6408-2727" class="view-certificate" target="_blank">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 2 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="certificate-image">
-                        <img src="ibm_data_analysis.jpg" alt="IBM Data Analysis Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Data Analysis with Python</h3>
-                        <p>Successfully completed <b>IBM Cognitive Class DA0101EN</b>, a course on data analysis with Python.  
-                        Issued by Cognitive Class on <b>August 16, 2025</b>.</p>
-                       <a href="https://courses.cognitiveclass.ai/certificates/0aedd4f2f37c4d589dce4e9851f93c42" class="view-certificate" target="_blank">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 3 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="certificate-image">
-                        <img src="debuging.jpg" alt="Dibugging Participation">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Dibugug Participation</h3>
-                        <p>Participated in Dibugug debugging competition, showcasing problem-solving skills in code analysis.</p>
-                        <a href="#" class="view-certificate view-certificate-btn" data-img="debuging.jpg">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 4 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="250">
-                    <div class="certificate-image">
-                        <img src="aichat.jpg" alt="AI Chat Bot Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>AI Chat Bot Workshop</h3>
-                        <p>Completed workshop on building AI-powered chat bots using natural language processing techniques.</p>
-                        <a href="https://cert.diceid.com/cid/ck61Mn5sgA?verify=true" class="view-certificate view-certificate-btn" data-img="aichat.jpg">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 5 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="certificate-image">
-                        <img src="BI.jpg" alt="Power BI Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Power BI Training</h3>
-                        <p>Certified in data visualization and business intelligence using Microsoft Power BI tools.</p>
-                        <a href="#" class="view-certificate view-certificate-btn" data-img="BI.jpg">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 6 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="350">
-                    <div class="certificate-image">
-                        <img src="cyber.jpg" alt="Cybersecurity Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Cybersecurity Workshop</h3>
-                        <p>Participated in cybersecurity workshop covering ethical hacking and system protection techniques.</p>
-                        <a href="#" class="view-certificate view-certificate-btn" data-img="cyber.jpg">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 7 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="certificate-image">
-                        <img src="DataA.jpg" alt="Data Analyst Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Data Analyst Certification</h3>
-                        <p>Earned the One Roadmap Skill Certification for successfully passing the Data Analyst test.</p>
-                        <a href="https://oneroadmap.io/skills/da/certificate/CERT-809B37AC" class="view-certificate view-certificate-btn" target="_blank">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 8 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="450">
-                    <div class="certificate-image">
-                        <img src="SQL.jpg" alt="SQL Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>SQL Certification</h3>
-                        <p>Earned the One Roadmap Skill Certification for successfully passing the SQL test.</p>
-                        <a href="https://oneroadmap.io/skills/sql/certificate/CERT-F4BE15CC" class="view-certificate view-certificate-btn" target="_blank">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 9 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="certificate-image">
-                        <img src="python.jpg" alt="Python Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Python Certification</h3>
-                        <p>Earned the One Roadmap Skill Certification for successfully passing the Python test.</p>
-                        <a href="https://oneroadmap.io/skills/python/certificate/CERT-3F942214" class="view-certificate view-certificate-btn" target="_blank">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 10 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="550">
-                    <div class="certificate-image">
-                        <img src="Data BI.jpg" alt="PowerBI Workshop Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Data Analytics using PowerBI</h3>
-                        <p>Completed the PowerBI workshop by Newton School, conducted by Anjali Pandey (Data Scientist, Accenture) on 11/05/2025.</p>
-                        <a href="Data BI.jpg" class="view-certificate view-certificate-btn" target="_blank">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 11 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="certificate-image">
-                        <img src="Data Mining.png" alt="Introduction to Data Mining Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Introduction to Data Mining</h3>
-                        <p>Completed an online course in July 2025 via Simplilearn SkillUp, covering foundational concepts, techniques, and applications of data mining.</p>
-                        <a href="#" class="view-certificate view-certificate-btn" data-img="Data Mining.png">View Certificate</a>
-                    </div>
-                </div>
-
-                <!-- Certificate 12 -->
-                <div class="certificate-card" data-aos="fade-up" data-aos-delay="650">
-                    <div class="certificate-image">
-                        <img src="model1.jpg" alt="Model Making Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Model Making Competition</h3>
-                        <p>Won 3rd prize in model making competition for innovative authentication system.</p>
-                        <a href="#" class="view-certificate view-certificate-btn" data-img="model1.jpg">View Certificate</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificate Modal -->
-    <div class="modal" id="certificateModal">
-        <span class="close-modal">&times;</span>
-        <div class="modal-content">
-            <img id="modalCertificateImage" src="" alt="Certificate">
+<nav>
+    <div class="nav-container">
+        <div class="logo">Nafees<span>Shaikh</span></div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a>
+            <a href="#education">Education</a><a href="#certificates">Certificates</a><a href="#contact">Contact</a>
         </div>
     </div>
+</nav>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-title" data-aos="fade-up">
-                <h2>Get In Touch</h2>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info-box" data-aos="fade-right">
-                    <h3>Contact Information</h3>
-                    <div class="contact-details">
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>nafisshaikh114@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Phone</h4>
-                                <p>+91 9975584833</p>
-                            </div>
-                        </div>
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Location</h4>
-                                <p>Mumbai, India</p>
-                            </div>
-                        </div>
-                        <!-- Add this Resume Button -->
-                        <div class="contact-detail">
-                            <div class="contact-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Resume</h4>
-                                <a href="NAFEES SHAIKH 114. CV.pdf" class="resume-btn" target="_blank">View Resume</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-info-box" data-aos="fade-left">
-                    <h3>Send Me a Message</h3>
-                    <form class="contact-form" id="contactForm">
-                        <input type="text" id="name" placeholder="Your Name" required>
-                        <input type="email" id="email" placeholder="Your Email" required>
-                        <input type="text" id="subject" placeholder="Subject">
-                        <textarea id="message" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#education">Education</a>
-                <a href="#certificates">Certificates</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="social-links-footer">
+<header>
+    <div class="container header-content">
+        <img src="nafees profile.png" alt="Nafees Shaikh" class="profile-img" onerror="this.src='https://placehold.co/400x400/1F2937/38BDF8?text=NS'">
+        <div class="header-text">
+            <h1>Nafees Shaikh</h1>
+            <p>Data Scientist | Analyst | BI Developer — Turning Raw Data into Strategic Gold</p>
+            <div class="typewriter" id="typewriter"></div>
+            <div class="social-links">
                 <a href="https://linkedin.com/in/nafees-shaikh-441405251" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://github.com/datascience619" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/sh123.nafees/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/mohdnafees.shaikh.906" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://wa.me/919975584833" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p class="copyright">© 2025 Nafees Shaikh. All rights reserved.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Contact</a>
+                <a href="NAFEES SHAIKH 114. CV.pdf" class="btn btn-secondary" target="_blank"><i class="fas fa-file-alt"></i> Resume</a>
+            </div>
         </div>
-    </footer>
+        <div class="stats-grid" data-aos="fade-up">
+            <div class="stat-item"><div class="stat-number" data-count="12">0</div><div class="stat-label">Certifications</div></div>
+            <div class="stat-item"><div class="stat-number" data-count="6">0</div><div class="stat-label">Projects</div></div>
+            <div class="stat-item"><div class="stat-number" data-count="3">0</div><div class="stat-label">Simulations</div></div>
+            <div class="stat-item"><div class="stat-number" data-count="10">0</div><div class="stat-label">Tech Tools</div></div>
+        </div>
+    </div>
+</header>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS (Animate On Scroll)
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
+<!-- About -->
+<section id="about">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up"><h2>About Me</h2></div>
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right">
+                <p>🔍 Data Science graduate with a passion for solving business puzzles. I specialize in building end-to-end analytics solutions — from SQL ETL to interactive dashboards in Power BI/Tableau and predictive models.</p>
+                <p>🏆 3rd Prize winner at National Model Competition for AI-based biometric system. Experienced with virtual simulations at Deloitte, Quantium, and TATA — delivering forensic analytics, commercial insights, and executive dashboards.</p>
+                <p>🧠 Skilled in Python (pandas, scikit-learn, OpenCV), SQL, and visualization. I love automating decision-making and telling stories with data.</p>
+            </div>
+            <div class="about-image" data-aos="fade-left">
+                <img src="nafeees11.jpg" alt="workspace" onerror="this.src='https://placehold.co/500x500/1F2937/38BDF8?text=Data+Science'">
+            </div>
+            <div class="skills-container">
+                <div class="skill-category"><h3><i class="fas fa-code"></i> Languages</h3><div class="skills"><span class="skill">Python</span><span class="skill">SQL</span><span class="skill">Pandas</span></div></div>
+                <div class="skill-category"><h3><i class="fas fa-chart-line"></i> BI & Viz</h3><div class="skills"><span class="skill">Tableau</span><span class="skill">Power BI</span><span class="skill">Excel</span></div></div>
+                <div class="skill-category"><h3><i class="fas fa-brain"></i> ML/DL</h3><div class="skills"><span class="skill">Scikit-learn</span><span class="skill">CNN</span><span class="skill">NLP</span><span class="skill">OpenCV</span></div></div>
+                <div class="skill-category"><h3><i class="fas fa-database"></i> Databases</h3><div class="skills"><span class="skill">SQLite</span><span class="skill">MySQL</span></div></div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
+<!-- Experience -->
+<section id="experience">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up"><h2>Virtual Experience & Simulations</h2></div>
+        <div class="experience-container">
+            <div class="experience-item" data-aos="fade-up"><div class="experience-header"><div><h3 class="experience-company">Deloitte Australia</h3><p class="experience-role">Data Analytics Job Simulation</p></div><span class="experience-date">June 2025</span></div><div class="experience-description"><p>Forensic data analytics on financial records, Excel classification, Tableau dashboard for anomaly detection.</p></div><div class="experience-tech"><span class="tech-item">Tableau</span><span class="tech-item">Excel</span><span class="tech-item">Forensics</span></div></div>
+            <div class="experience-item" data-aos="fade-up"><div class="experience-header"><div><h3 class="experience-company">Quantium</h3><p class="experience-role">Data Analytics & Commercial Insights</p></div><span class="experience-date">May 2025</span></div><div class="experience-description"><p>Customer transaction analysis, uplift testing, strategic recommendations for Category Manager.</p></div><div class="experience-tech"><span class="tech-item">Data Analysis</span><span class="tech-item">Commercial Strategy</span><span class="tech-item">Excel</span></div></div>
+            <div class="experience-item" data-aos="fade-up"><div class="experience-header"><div><h3 class="experience-company">Tata Consultancy Services</h3><p class="experience-role">Data Visualization Simulation</p></div><span class="experience-date">May 2025</span></div><div class="experience-description"><p>Executive dashboards using Power BI & Tableau, presenting data narratives for leadership.</p></div><div class="experience-tech"><span class="tech-item">Power BI</span><span class="tech-item">Tableau</span><span class="tech-item">Storytelling</span></div></div>
+        </div>
+    </div>
+</section>
 
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
-        });
+<!-- Projects -->
+<section id="projects">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up"><h2>Data Science Projects</h2></div>
+        <div class="projects-grid">
+            <div class="project-card"><div class="project-image"><img src="inventory.PNG" alt="inventory"></div><div class="project-info"><h3>Smart Inventory Management</h3><p>SQLite + linear regression demand forecasting, auto reorder alerts. Python Tkinter GUI.</p><div class="project-tech"><span class="tech-item">Python</span><span class="tech-item">Scikit-learn</span></div><div class="project-links"><a href="https://github.com/datascience619/Inventory-management" target="_blank"><i class="fab fa-github"></i> Code</a></div></div></div>
+            <div class="project-card"><div class="project-image"><img src="covid.PNG" alt="covid dashboard"></div><div class="project-info"><h3>COVID-19 Global Tracker</h3><p>Tableau interactive dashboard, 195+ countries, trend analysis & drill-downs.</p><div class="project-tech"><span class="tech-item">Tableau</span><span class="tech-item">Visualization</span></div><div class="project-links"><a href="https://public.tableau.com/app/profile/nafees.shaikh5920/viz/covid19_17468123173620/Dashboard1?publish=yes" target="_blank">Live Demo</a></div></div></div>
+            <div class="project-card"><div class="project-image"><img src="netflix.PNG" alt="netflix"></div><div class="project-info"><h3>Netflix Content Intelligence</h3><p>BI dashboard analyzing 8k+ titles, heatmaps, geographical content trends.</p><div class="project-tech"><span class="tech-item">Tableau</span></div><div class="project-links"><a href="https://public.tableau.com/app/profile/nafees.shaikh5920/viz/netflix_17468124620910/Netflix?publish=yes" target="_blank">Explore</a></div></div></div>
+            <div class="project-card"><div class="project-image"><img src="summarizer.JPG" alt="nlp"></div><div class="project-info"><h3>Text Summarization & Translation</h3><p>NLP tool for PDF/DOCX summarization, multi-language translation, audio conversion.</p><div class="project-tech"><span class="tech-item">NLP</span><span class="tech-item">Python</span></div><div class="project-links"><a href="https://github.com/datascience619/Text-summarisation" target="_blank">GitHub</a></div></div></div>
+            <div class="project-card"><div class="project-image"><img src="agribot.JPG" alt="agribot"></div><div class="project-info"><h3>Agricultural Assistant</h3><p>Crop recommendation (Random Forest) + CNN disease detection from leaf images.</p><div class="project-tech"><span class="tech-item">CNN</span><span class="tech-item">ML</span></div><div class="project-links"><a href="https://github.com/datascience619/Agribot/tree/main" target="_blank">Code</a></div></div></div>
+            <div class="project-card"><div class="project-image"><img src="fingerpring.jpg" alt="biometric"></div><div class="project-info"><h3>Fingerprint & Signature Auth</h3><p>ORB feature matching, biometric verification, Python OpenCV.</p><div class="project-tech"><span class="tech-item">OpenCV</span><span class="tech-item">Computer Vision</span></div><div class="project-links"><a href="https://github.com/datascience619/Authentication" target="_blank">Code</a></div></div></div>
+        </div>
+    </div>
+</section>
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-            });
-        });
+<!-- Education & certs -->
+<section id="education">
+    <div class="container"><div class="section-title"><h2>Education</h2></div>
+        <div class="education-item"><h3>B.Sc Data Science</h3><p>Reena Mehta College, Mumbai University (2022-2025)</p></div>
+        <div class="education-item"><h3>HSC (Science)</h3><p>New Era Junior College, Bhiwandi</p></div>
+        <div class="education-item"><h3>SSC</h3><p>Rafiuddin Fakhi Boys High School</p></div>
+    </div>
+</section>
 
-        // Typewriter effect
-        const typewriterElement = document.getElementById('typewriter');
-        const texts = [
-            "Skilled in Tableau, Power BI & Machine Learning",
-            "Actively Seeking Opportunities",
-            "Turning Data into Insights 📊",
-            "Transforming Numbers into Narratives"
-        ];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typingSpeed = 100;
+<section id="certificates">
+    <div class="container"><div class="section-title"><h2>Awards & Certifications</h2></div>
+        <div class="certificates-container">
+            <div class="certificate-card"><div class="certificate-image"><img src="basicpy.jpg"></div><h3>Basics of Python – Cambridge</h3><a href="https://uniathena.com/verify/certificate?certID=5107-6408-2727" target="_blank" class="view-certificate">Verify</a></div>
+            <div class="certificate-card"><div class="certificate-image"><img src="ibm_data_analysis.jpg"></div><h3>Data Analysis with Python - IBM</h3><a href="https://courses.cognitiveclass.ai/certificates/0aedd4f2f37c4d589dce4e9851f93c42" target="_blank" class="view-certificate">View</a></div>
+            <div class="certificate-card"><div class="certificate-image"><img src="DataA.jpg"></div><h3>Data Analyst – One Roadmap</h3><a href="https://oneroadmap.io/skills/da/certificate/CERT-809B37AC" target="_blank" class="view-certificate">Certificate</a></div>
+            <div class="certificate-card"><div class="certificate-image"><img src="SQL.jpg"></div><h3>SQL Certified</h3><a href="https://oneroadmap.io/skills/sql/certificate/CERT-F4BE15CC" target="_blank">View</a></div>
+            <div class="certificate-card"><div class="certificate-image"><img src="python.jpg"></div><h3>Python Certification</h3><a href="https://oneroadmap.io/skills/python/certificate/CERT-3F942214" target="_blank">Check</a></div>
+            <div class="certificate-card"><div class="certificate-image"><img src="Data BI.jpg"></div><h3>PowerBI Workshop</h3><a href="#" class="view-certificate cert-modal-trigger" data-img="Data BI.jpg">Preview</a></div>
+            <div class="certificate-card"><div class="certificate-image"><img src="model1.jpg"></div><h3>Model Making Competition (3rd Prize)</h3><a href="#" class="view-certificate cert-modal-trigger" data-img="model1.jpg">View Award</a></div>
+        </div>
+    </div>
+</section>
 
-        function typeWriter() {
-            const currentText = texts[textIndex];
-            
-            if (isDeleting) {
-                typewriterElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-                typingSpeed = 50;
-            } else {
-                typewriterElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-                typingSpeed = 100;
-            }
+<section id="contact">
+    <div class="container"><div class="section-title"><h2>Get In Touch</h2></div>
+        <div class="contact-container">
+            <div class="contact-info-box"><h3>Contact Info</h3>
+                <div class="contact-detail"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4>Email</h4><p>nafisshaikh114@gmail.com</p></div></div>
+                <div class="contact-detail"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h4>Phone</h4><p>+91 9975584833</p></div></div>
+                <div class="contact-detail"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4>Location</h4><p>Mumbai, India</p></div></div>
+            </div>
+            <div class="contact-info-box"><h3>Send a Message</h3>
+                <form id="contactForm" class="contact-form"><input type="text" id="name" placeholder="Your Name" required><input type="email" id="email" placeholder="Email" required><input type="text" id="subject" placeholder="Subject"><textarea id="message" rows="4" placeholder="Message"></textarea><button type="submit" class="submit-btn">Send <i class="fas fa-paper-plane"></i></button></form>
+            </div>
+        </div>
+    </div>
+</section>
 
-            if (!isDeleting && charIndex === currentText.length) {
-                isDeleting = true;
-                typingSpeed = 1500; // Pause at end
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                typingSpeed = 500; // Pause before starting next text
-            }
+<footer><p>© 2025 Nafees Shaikh — Data Science Portfolio | Built with <i class="fas fa-chart-line"></i> insights</p></footer>
 
-            setTimeout(typeWriter, typingSpeed);
-        }
+<div class="modal" id="certModal"><span class="close-modal" style="position:absolute; top:20px; right:40px; font-size:40px; cursor:pointer;">&times;</span><div class="modal-content"><img id="modalImg" src=""></div></div>
 
-        // Start typewriter effect after page loads
-        window.addEventListener('load', () => {
-            setTimeout(typeWriter, 1000);
-        });
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 700, once: true });
+    // Mobile Menu
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const nav = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => nav.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => nav.classList.remove('active')));
 
-        // Certificate Modal functionality
-        const modal = document.getElementById('certificateModal');
-        const modalImg = document.getElementById('modalCertificateImage');
-        const closeModal = document.querySelector('.close-modal');
-        const viewButtons = document.querySelectorAll('.view-certificate-btn');
+    // Typewriter
+    const typeEl = document.getElementById('typewriter');
+    const phrases = ["📊 Python • SQL • Tableau", "📈 Predictive Modeling & BI", "🔍 Turning Data into Strategy", "🚀 Actively seeking Data Analyst Roles"];
+    let idx=0, charIdx=0, del=false;
+    function typeEffect(){
+        let cur = phrases[idx];
+        if(del) { typeEl.innerText = cur.slice(0, charIdx-1); charIdx--; }
+        else { typeEl.innerText = cur.slice(0, charIdx+1); charIdx++; }
+        if(!del && charIdx === cur.length) { del=true; setTimeout(typeEffect, 1800); return; }
+        if(del && charIdx===0) { del=false; idx=(idx+1)%phrases.length; setTimeout(typeEffect, 300); return; }
+        setTimeout(typeEffect, del? 45 : 70);
+    }
+    setTimeout(typeEffect, 500);
 
-        viewButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                const imgSrc = button.getAttribute('data-img');
-                if (imgSrc) {
-                    modalImg.src = imgSrc;
-                    modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
+    // Stats counter
+    const counters = document.querySelectorAll('.stat-number');
+    const startCount = () => {
+        counters.forEach(c => { let target = parseInt(c.getAttribute('data-count')); let count = 0; let update = setInterval(() => { if(count<target){ count++; c.innerText=count; } else clearInterval(update); }, 50); });
+    };
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) { startCount(); observer.disconnect(); } }); }, { threshold: 0.5 });
+    const statsSection = document.querySelector('.stats-grid');
+    if(statsSection) observer.observe(statsSection);
 
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
+    // Certificate Modal
+    const modal = document.getElementById('certModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModal = document.querySelector('.close-modal');
+    document.querySelectorAll('.cert-modal-trigger').forEach(btn => {
+        btn.addEventListener('click', (e) => { e.preventDefault(); const imgSrc = btn.getAttribute('data-img'); if(imgSrc){ modalImg.src = imgSrc; modal.style.display = 'flex'; } });
+    });
+    closeModal.addEventListener('click', () => modal.style.display = 'none');
+    window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
+    // Contact form whatsapp fallback
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', (e) => { e.preventDefault(); const name = document.getElementById('name').value; const msg = document.getElementById('message').value; alert(`Thanks ${name}! I'll reach out soon.`); form.reset(); });
 
-        // Contact form submission
-        const contactForm = document.getElementById('contactForm');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-
-            // Here you would typically send this data to a server
-            // For demonstration, we'll just show an alert
-            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon at ${email}.`);
-
-            // Create WhatsApp link
-            const whatsappMessage = `Hi Nafees,\n\nMy name is ${name}.\n\n${message}\n\nYou can contact me back at ${email}`;
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            const whatsappLink = `https://wa.me/919975584833?text=${encodedMessage}`;
-
-            // Optionally open WhatsApp
-            if (confirm('Would you like to open WhatsApp to send this message directly?')) {
-                window.open(whatsappLink, '_blank');
-            }
-
-            // Reset form
-            contactForm.reset();
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.padding = '0.5rem 0';
-                nav.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
-            } else {
-                nav.style.padding = '1.2rem 0';
-                nav.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-            }
-        });
-    </script>
+    // Canvas Data Science Animation
+    const canvas = document.getElementById('dataCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth, height = window.innerHeight;
+    let particles = [];
+    function resizeCanvas() { width = window.innerWidth; height = window.innerHeight; canvas.width = width; canvas.height = height; }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    class DataParticle { constructor() { this.x = Math.random() * width; this.y = Math.random() * height; this.vx = (Math.random() - 0.5) * 0.4; this.vy = (Math.random() - 0.5) * 0.3; this.radius = Math.random() * 2 + 1.2; } update() { this.x += this.vx; this.y += this.vy; if(this.x<0) this.x=width; if(this.x>width) this.x=0; if(this.y<0) this.y=height; if(this.y>height) this.y=0; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2); ctx.fillStyle = '#38BDF8'; ctx.shadowBlur = 6; ctx.shadowColor = '#0EA5E9'; ctx.fill(); } }
+    for(let i=0;i<120;i++) particles.push(new DataParticle());
+    function animateData() { if(!ctx) return; ctx.clearRect(0,0,width,height); ctx.shadowBlur = 0; for(let p of particles) { p.update(); p.draw(); } for(let i=0;i<particles.length;i++){ for(let j=i+1;j<particles.length;j++){ let dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y, dist = Math.hypot(dx,dy); if(dist < 90){ ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.strokeStyle = 'rgba(56, 189, 248, 0.12)'; ctx.lineWidth = 0.6; ctx.stroke(); } } } requestAnimationFrame(animateData); }
+    animateData();
+</script>
 </body>
 </html>
-
-
-

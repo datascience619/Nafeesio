@@ -32,9 +32,7 @@
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--ink);
@@ -43,7 +41,6 @@ body {
   line-height: 1.65;
 }
 
-/* ── NOISE & GRID OVERLAY ── */
 body::before {
   content:'';
   position:fixed; inset:0; z-index:0;
@@ -54,7 +51,6 @@ body::before {
   pointer-events:none;
 }
 
-/* CANVAS */
 #bg-canvas {
   position:fixed; inset:0; z-index:0;
   pointer-events:none; opacity:0.45;
@@ -62,7 +58,6 @@ body::before {
 
 .z1 { position:relative; z-index:2; }
 
-/* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width:5px; }
 ::-webkit-scrollbar-track { background:var(--ink); }
 ::-webkit-scrollbar-thumb { background:var(--cyan2); border-radius:10px; }
@@ -126,11 +121,10 @@ nav {
 }
 .mobile-nav a:hover { color:var(--cyan); }
 
-/* ── SECTION WRAPPER ── */
+/* ── CONTAINERS ── */
 .container { max-width:1180px; margin:0 auto; padding:0 2rem; }
 section { padding:7rem 0; }
 
-/* ── SECTION LABELS ── */
 .section-eyebrow {
   font-family:'DM Mono', monospace;
   font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase;
@@ -150,15 +144,11 @@ section { padding:7rem 0; }
 .section-title span { color:var(--cyan); }
 
 /* ── HERO ── */
-#hero {
-  min-height:100vh; display:flex; align-items:center;
-  padding-top:80px;
-}
+#hero { min-height:100vh; display:flex; align-items:center; padding-top:80px; }
 .hero-grid {
   display:grid; grid-template-columns:1fr 1fr;
   gap:4rem; align-items:center;
 }
-.hero-left {}
 .hero-tag {
   display:inline-flex; align-items:center; gap:0.5rem;
   padding:0.35rem 1rem; border-radius:40px;
@@ -199,17 +189,12 @@ section { padding:7rem 0; }
 }
 .btn-primary { background:var(--cyan); color:var(--ink); }
 .btn-primary:hover { background:var(--cyan2); transform:translateY(-3px); box-shadow:var(--glow-cyan); }
-.btn-outline {
-  background:transparent; color:var(--cyan);
-  border:1.5px solid var(--border2);
-}
+.btn-outline { background:transparent; color:var(--cyan); border:1.5px solid var(--border2); }
 .btn-outline:hover { border-color:var(--cyan); background:rgba(0,212,255,0.08); transform:translateY(-3px); }
 
-/* HERO RIGHT — AVATAR CARD */
+/* AVATAR CARD */
 .hero-right { display:flex; justify-content:center; }
-.avatar-card {
-  position:relative; width:360px; max-width:100%;
-}
+.avatar-card { position:relative; width:360px; max-width:100%; }
 .avatar-card::before {
   content:'';
   position:absolute; inset:-1px; border-radius:28px;
@@ -230,18 +215,12 @@ section { padding:7rem 0; }
   box-shadow:var(--glow-cyan);
   margin-bottom:1.5rem;
   transition:var(--transition);
+  flex-shrink:0;
 }
 .avatar-img:hover { transform:scale(1.04); }
-.avatar-name {
-  font-family:'Syne',sans-serif;
-  font-size:1.4rem; font-weight:700; margin-bottom:0.25rem;
-}
-.avatar-role {
-  font-family:'DM Mono',monospace;
-  font-size:0.75rem; color:var(--cyan); letter-spacing:0.1em;
-  margin-bottom:1.5rem;
-}
-.social-row { display:flex; gap:0.75rem; justify-content:center; }
+.avatar-name { font-family:'Syne',sans-serif; font-size:1.4rem; font-weight:700; margin-bottom:0.25rem; }
+.avatar-role { font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--cyan); letter-spacing:0.1em; margin-bottom:1.5rem; }
+.social-row { display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap; }
 .social-btn {
   width:40px; height:40px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
@@ -250,32 +229,39 @@ section { padding:7rem 0; }
   transition:var(--transition);
 }
 .social-btn:hover { background:var(--cyan); color:var(--ink); border-color:var(--cyan); transform:translateY(-4px); }
-.hero-stats {
-  display:flex; gap:0.75rem; margin-top:1.5rem; width:100%; flex-wrap:wrap;
-}
+.hero-stats { display:flex; gap:0.75rem; margin-top:1.5rem; width:100%; flex-wrap:wrap; }
 .hero-stat {
   flex:1; min-width:60px; background:var(--ink3); border-radius:12px;
   padding:0.8rem 0.5rem; text-align:center;
   border:1px solid var(--border);
 }
-.hero-stat-n {
-  font-family:'Syne',sans-serif;
-  font-size:1.6rem; font-weight:800; color:var(--cyan);
-  display:block; line-height:1;
-}
+.hero-stat-n { font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800; color:var(--cyan); display:block; line-height:1; }
 .hero-stat-l { font-size:0.68rem; color:var(--muted); margin-top:0.2rem; }
 
 /* ── ABOUT ── */
 #about { background:linear-gradient(180deg, var(--ink) 0%, var(--ink2) 100%); }
-.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+
+/* About grid: text wider, photo right — stays proportional */
+.about-grid {
+  display:grid;
+  grid-template-columns:1.15fr 0.85fr;
+  gap:4rem;
+  align-items:start;
+}
 .about-text p { color:var(--muted); margin-bottom:1.1rem; font-size:0.97rem; }
 .about-text p strong { color:var(--text); }
+
 .about-workspace {
-  position:relative; border-radius:var(--radius);
+  position:sticky;
+  top:90px;
+  border-radius:var(--radius);
   overflow:hidden;
 }
 .about-workspace img {
-  width:100%; border-radius:var(--radius);
+  width:100%;
+  max-height:460px;
+  object-fit:cover;
+  border-radius:var(--radius);
   border:1px solid var(--border);
   display:block;
 }
@@ -284,6 +270,7 @@ section { padding:7rem 0; }
   background:linear-gradient(to top, rgba(5,10,18,0.7) 0%, transparent 60%);
   border-radius:var(--radius);
 }
+
 .skills-grid {
   display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:1.5rem; margin-top:4rem;
@@ -319,14 +306,12 @@ section { padding:7rem 0; }
   border-radius:var(--radius); padding:2rem;
   display:grid; grid-template-columns:auto 1fr auto;
   gap:1.5rem; align-items:start;
-  transition:var(--transition); position:relative;
-  overflow:hidden;
+  transition:var(--transition); position:relative; overflow:hidden;
 }
 .exp-card::before {
   content:''; position:absolute; left:0; top:0; bottom:0;
   width:3px; background:var(--cyan);
-  transform:scaleY(0); transition:transform 0.3s ease;
-  transform-origin:top;
+  transform:scaleY(0); transition:transform 0.3s ease; transform-origin:top;
 }
 .exp-card:hover::before { transform:scaleY(1); }
 .exp-card:hover { border-color:var(--border2); transform:translateX(6px); }
@@ -336,11 +321,7 @@ section { padding:7rem 0; }
   display:flex; align-items:center; justify-content:center;
   font-size:1.4rem; flex-shrink:0;
 }
-.exp-body {}
-.exp-company {
-  font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700;
-  margin-bottom:0.2rem;
-}
+.exp-company { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:0.2rem; }
 .exp-role { font-size:0.85rem; color:var(--cyan); font-weight:500; margin-bottom:0.5rem; }
 .exp-desc { font-size:0.9rem; color:var(--muted); }
 .exp-tags { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.8rem; }
@@ -359,10 +340,7 @@ section { padding:7rem 0; }
 
 /* ── PROJECTS ── */
 #projects { background:var(--ink); }
-.projects-grid {
-  display:grid; grid-template-columns:repeat(auto-fill, minmax(340px,1fr));
-  gap:2rem;
-}
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(340px,1fr)); gap:2rem; }
 .project-card {
   background:var(--card-bg); border:1px solid var(--border);
   border-radius:var(--radius); overflow:hidden;
@@ -373,10 +351,7 @@ section { padding:7rem 0; }
   height:190px; overflow:hidden; position:relative;
   background:linear-gradient(135deg,var(--ink3),var(--ink2));
 }
-.project-thumb img {
-  width:100%; height:100%; object-fit:cover;
-  transition:transform 0.5s ease;
-}
+.project-thumb img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease; }
 .project-card:hover .project-thumb img { transform:scale(1.08); }
 .project-thumb-overlay {
   position:absolute; inset:0;
@@ -386,28 +361,22 @@ section { padding:7rem 0; }
   position:absolute; top:1rem; left:1rem;
   font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em;
   padding:0.25rem 0.7rem; border-radius:30px;
-  background:rgba(0,212,255,0.15); border:1px solid var(--border2);
-  color:var(--cyan);
+  background:rgba(0,212,255,0.15); border:1px solid var(--border2); color:var(--cyan);
 }
 .project-body { padding:1.5rem; flex:1; display:flex; flex-direction:column; }
-.project-title {
-  font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700;
-  margin-bottom:0.5rem;
-}
+.project-title { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:0.5rem; }
 .project-desc { font-size:0.87rem; color:var(--muted); flex:1; margin-bottom:1.2rem; }
 .project-tech { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.2rem; }
 .project-tech span {
   font-family:'DM Mono',monospace; font-size:0.68rem;
   padding:0.2rem 0.6rem; border-radius:30px;
-  background:var(--ink3); border:1px solid var(--border);
-  color:var(--muted);
+  background:var(--ink3); border:1px solid var(--border); color:var(--muted);
 }
 .project-links { display:flex; gap:0.75rem; }
 .project-link {
   display:inline-flex; align-items:center; gap:0.4rem;
   font-size:0.82rem; font-weight:600; text-decoration:none;
-  padding:0.4rem 1rem; border-radius:30px;
-  transition:var(--transition);
+  padding:0.4rem 1rem; border-radius:30px; transition:var(--transition);
 }
 .project-link.primary { background:var(--cyan); color:var(--ink); }
 .project-link.primary:hover { background:var(--cyan2); }
@@ -421,9 +390,7 @@ section { padding:7rem 0; }
   content:''; position:absolute; left:22px; top:0; bottom:0;
   width:1px; background:linear-gradient(to bottom, var(--cyan), transparent);
 }
-.edu-item {
-  display:flex; gap:1.8rem; padding-bottom:2.5rem; position:relative;
-}
+.edu-item { display:flex; gap:1.8rem; padding-bottom:2.5rem; position:relative; }
 .edu-dot {
   width:46px; height:46px; border-radius:50%; flex-shrink:0;
   background:var(--ink3); border:2px solid var(--cyan);
@@ -436,19 +403,13 @@ section { padding:7rem 0; }
   flex:1; transition:var(--transition);
 }
 .edu-content:hover { border-color:var(--border2); transform:translateX(6px); }
-.edu-degree {
-  font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700;
-  margin-bottom:0.25rem;
-}
+.edu-degree { font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; margin-bottom:0.25rem; }
 .edu-school { font-size:0.88rem; color:var(--cyan); margin-bottom:0.3rem; }
 .edu-year { font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--muted); }
 
 /* ── CERTIFICATIONS ── */
 #certificates { background:var(--ink); }
-.certs-grid {
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:1.5rem;
-}
+.certs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem; }
 .cert-card {
   background:var(--card-bg); border:1px solid var(--border);
   border-radius:var(--radius); overflow:hidden;
@@ -459,10 +420,7 @@ section { padding:7rem 0; }
 .cert-thumb img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s; }
 .cert-card:hover .cert-thumb img { transform:scale(1.06); }
 .cert-body { padding:1.2rem; }
-.cert-issuer {
-  font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--cyan);
-  letter-spacing:0.08em; margin-bottom:0.4rem;
-}
+.cert-issuer { font-family:'DM Mono',monospace; font-size:0.68rem; color:var(--cyan); letter-spacing:0.08em; margin-bottom:0.4rem; }
 .cert-title { font-family:'Syne',sans-serif; font-size:0.95rem; font-weight:700; margin-bottom:0.8rem; }
 .cert-link {
   display:inline-flex; align-items:center; gap:0.4rem;
@@ -472,7 +430,7 @@ section { padding:7rem 0; }
 }
 .cert-link:hover { background:var(--cyan); color:var(--ink); }
 
-/* ── AWARD BANNER ── */
+/* AWARD BANNER */
 .award-banner {
   background:linear-gradient(135deg, rgba(245,166,35,0.1), rgba(232,149,42,0.05));
   border:1px solid rgba(245,166,35,0.3);
@@ -481,10 +439,7 @@ section { padding:7rem 0; }
   margin-bottom:3rem; flex-wrap:wrap;
 }
 .award-icon { font-size:3rem; flex-shrink:0; }
-.award-title {
-  font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700;
-  color:var(--gold); margin-bottom:0.3rem;
-}
+.award-title { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; color:var(--gold); margin-bottom:0.3rem; }
 .award-desc { font-size:0.9rem; color:var(--muted); }
 
 /* ── CONTACT ── */
@@ -497,8 +452,7 @@ section { padding:7rem 0; }
   display:flex; align-items:center; gap:1rem;
   background:var(--card-bg); border:1px solid var(--border);
   border-radius:12px; padding:1rem 1.2rem;
-  text-decoration:none; color:var(--text);
-  transition:var(--transition);
+  text-decoration:none; color:var(--text); transition:var(--transition);
 }
 .contact-item:hover { border-color:var(--border2); transform:translateX(6px); }
 .contact-item-icon {
@@ -522,8 +476,7 @@ section { padding:7rem 0; }
   width:100%; padding:0.8rem 1rem;
   background:var(--ink3); border:1px solid var(--border);
   border-radius:10px; color:var(--text); font-family:inherit; font-size:0.9rem;
-  transition:border-color 0.2s; resize:vertical;
-  outline:none;
+  transition:border-color 0.2s; resize:vertical; outline:none;
 }
 .form-group input:focus,
 .form-group textarea:focus { border-color:var(--cyan); box-shadow:0 0 0 3px rgba(0,212,255,0.08); }
@@ -532,8 +485,28 @@ section { padding:7rem 0; }
 .form-success {
   display:none; padding:1rem; border-radius:10px;
   background:rgba(0,229,160,0.1); border:1px solid rgba(0,229,160,0.3);
-  color:var(--green); text-align:center; font-size:0.9rem;
-  margin-top:1rem;
+  color:var(--green); text-align:center; font-size:0.9rem; margin-top:1rem;
+}
+
+/* WhatsApp quick-send row inside form */
+.wa-row {
+  display:flex; align-items:center; gap:0.75rem;
+  margin-bottom:1.5rem;
+}
+.wa-btn {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  padding:0.7rem 1.4rem; border-radius:40px;
+  background:#25D366; color:#fff;
+  font-weight:600; font-size:0.88rem;
+  text-decoration:none; transition:var(--transition);
+  white-space:nowrap;
+}
+.wa-btn:hover { background:#1da951; transform:translateY(-2px); box-shadow:0 8px 20px rgba(37,211,102,0.3); }
+.wa-divider { flex:1; height:1px; background:var(--border); }
+.wa-divider-text {
+  font-family:'DM Mono',monospace;
+  font-size:0.68rem; color:var(--muted); letter-spacing:0.12em;
+  white-space:nowrap;
 }
 
 /* ── FOOTER ── */
@@ -578,12 +551,23 @@ footer {
   .hero-grid { grid-template-columns:1fr; gap:3rem; }
   .hero-right { order:-1; }
   .avatar-card { width:100%; max-width:360px; margin:0 auto; }
+
+  /* About: on mobile stack photo above text */
   .about-grid { grid-template-columns:1fr; gap:2.5rem; }
+  .about-workspace {
+    position:static;
+    order:-1;
+  }
+  .about-workspace img { max-height:280px; }
+
   .contact-grid { grid-template-columns:1fr; }
   .nav-links, .nav-cta { display:none; }
   .hamburger { display:flex; }
   .form-row { grid-template-columns:1fr; }
+
+  .wa-row { flex-wrap:wrap; }
 }
+
 @media (max-width:600px) {
   section { padding:5rem 0; }
   .projects-grid { grid-template-columns:1fr; }
@@ -593,6 +577,7 @@ footer {
   .exp-date { justify-self:start; }
   .hero-stats { gap:0.6rem; }
 }
+
 @media (max-width:420px) {
   .certs-grid { grid-template-columns:1fr; }
   .skills-grid { grid-template-columns:1fr; }
@@ -642,7 +627,7 @@ footer {
           Available for Opportunities
         </div>
         <h1 class="hero-name">Nafees<br><span class="accent">Shaikh</span></h1>
-        <p class="hero-subtitle">Data Scientist & Analyst — Transforming raw data into strategic intelligence through ML, BI & visualization.</p>
+        <p class="hero-subtitle">Data Scientist &amp; Analyst — Transforming raw data into strategic intelligence through ML, BI &amp; visualization.</p>
         <div class="hero-typewriter">
           <span id="typewriter-text"></span><span class="cursor"></span>
         </div>
@@ -661,18 +646,18 @@ footer {
             <div class="social-row">
               <a href="https://linkedin.com/in/nafees-shaikh-441405251" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
               <a href="https://github.com/datascience619" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
-              <a href="https://wa.me/919975584833" target="_blank" class="social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://wa.me/919975584833" target="_blank" class="social-btn" title="WhatsApp" style="color:#25D366"><i class="fab fa-whatsapp"></i></a>
               <a href="mailto:nafisshaikh114@gmail.com" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
               <a href="https://www.instagram.com/sh123.nafees/" target="_blank" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
               <a href="https://www.facebook.com/mohdnafees.shaikh.906" target="_blank" class="social-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
             </div>
             <div class="hero-stats">
               <div class="hero-stat">
-                <span class="hero-stat-n" data-target="12">0</span>
+                <span class="hero-stat-n" data-target="14">0</span>
                 <div class="hero-stat-l">Certifications</div>
               </div>
               <div class="hero-stat">
-                <span class="hero-stat-n" data-target="6">0</span>
+                <span class="hero-stat-n" data-target="7">0</span>
                 <div class="hero-stat-l">Projects</div>
               </div>
               <div class="hero-stat">
@@ -699,8 +684,10 @@ footer {
     <div class="about-grid">
       <div class="about-text reveal">
         <p>👋 Hi, I'm <strong>Nafees Shaikh</strong> — a passionate Data Science graduate with a B.Sc. in Data Science and hands-on experience in transforming complex datasets into clear, actionable insights. Skilled in Python, SQL, Power BI, Tableau, and Excel, I specialise in developing interactive dashboards, automation tools, and machine learning applications that solve real-world business problems.</p>
-        <p>🏆 From building a <strong>Smart Inventory Management System</strong> (stock tracking + demand forecasting) to creating a <strong>Fingerprint & Signature Recognition System</strong> for biometric authentication, I enjoy leveraging data and technology to streamline operations.</p>
+        <p>🏆 From building a <strong>Smart Inventory Management System</strong> (stock tracking + demand forecasting) to creating a <strong>Fingerprint &amp; Signature Recognition System</strong> for biometric authentication, I enjoy leveraging data and technology to streamline operations.</p>
         <p>📊 Virtual simulations with <strong>Deloitte, Tata Group, and Quantium</strong> gave me exposure to forensic analytics, executive dashboards, and commercial insights. My work earned <strong>3rd Prize</strong> at a national-level model-making competition for AI-based authentication using Python and OpenCV.</p>
+        <p>🚀 I recently built <strong>Auto Data Cleaner Pro (Ultra Edition)</strong> — a full-featured desktop app that automates the entire data cleaning workflow. It handles missing values via 5 strategies, AI-powered anomaly detection (Isolation Forest), generates a data quality score (A–F grade), and includes 8 built-in visualizations. Data cleaning takes 60–80% of analyst time — this tool cuts that dramatically.</p>
+        <p>🧠 Continuously upskilling — recently completed <strong>Deep Learning with PyTorch</strong> and <strong>Introduction to NumPy</strong> on SkillUp by Simplilearn, adding deep learning to my ML toolkit alongside Scikit-learn, CNN, and NLP.</p>
         <p>💡 Driven by curiosity, I'm always eager to explore new technologies, analyse patterns, and collaborate on data-driven projects that create meaningful business impact. Based in <strong>Mumbai, India</strong> — actively seeking Data Analyst / Data Scientist roles.</p>
       </div>
       <div class="about-workspace reveal reveal-delay-2">
@@ -731,9 +718,10 @@ footer {
       </div>
       <div class="skill-group reveal reveal-delay-2">
         <div class="skill-group-icon"><i class="fas fa-brain"></i></div>
-        <h4>ML & NLP</h4>
+        <h4>ML / DL &amp; NLP</h4>
         <div class="skill-pills">
           <span class="pill">Scikit-learn</span>
+          <span class="pill">PyTorch</span>
           <span class="pill">CNN</span>
           <span class="pill">NLP</span>
           <span class="pill">OpenCV</span>
@@ -791,7 +779,7 @@ footer {
         <div class="exp-logo">📊</div>
         <div class="exp-body">
           <div class="exp-company">Quantium</div>
-          <div class="exp-role">Data Analytics & Commercial Insights</div>
+          <div class="exp-role">Data Analytics &amp; Commercial Insights</div>
           <div class="exp-desc">Analysed customer transaction data, conducted uplift testing for trial store performance, and delivered commercial strategy recommendations to a fictional Category Manager — mimicking consulting-grade deliverables.</div>
           <div class="exp-tags">
             <span class="exp-tag">Data Analysis</span>
@@ -830,17 +818,14 @@ footer {
 
       <div class="project-card reveal">
         <div class="project-thumb">
-          <img src="inventory.PNG" alt="Smart Inventory"
-            onerror="this.src='https://placehold.co/600x400/0C1524/00D4FF?text=Inventory+System'">
+          <img src="inventory.PNG" alt="Smart Inventory" onerror="this.src='https://placehold.co/600x400/0C1524/00D4FF?text=Inventory+System'">
           <div class="project-thumb-overlay"></div>
           <div class="project-category">ML · Python</div>
         </div>
         <div class="project-body">
           <div class="project-title">Smart Inventory Management System</div>
           <div class="project-desc">Desktop app for stock tracking, sales processing, and reorder alerts using SQLite. Linear regression for demand forecasting with automated low-stock notifications.</div>
-          <div class="project-tech">
-            <span>Python</span><span>Scikit-learn</span><span>SQLite</span><span>Tkinter</span>
-          </div>
+          <div class="project-tech"><span>Python</span><span>Scikit-learn</span><span>SQLite</span><span>Tkinter</span></div>
           <div class="project-links">
             <a href="https://github.com/datascience619/Inventory-management" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           </div>
@@ -849,17 +834,14 @@ footer {
 
       <div class="project-card reveal reveal-delay-1">
         <div class="project-thumb">
-          <img src="covid.PNG" alt="COVID Tracker"
-            onerror="this.src='https://placehold.co/600x400/0C1524/00E5A0?text=COVID+Dashboard'">
+          <img src="covid.PNG" alt="COVID Tracker" onerror="this.src='https://placehold.co/600x400/0C1524/00E5A0?text=COVID+Dashboard'">
           <div class="project-thumb-overlay"></div>
           <div class="project-category">Tableau · Viz</div>
         </div>
         <div class="project-body">
           <div class="project-title">COVID-19 Global Tracker Dashboard</div>
           <div class="project-desc">Comprehensive Tableau dashboard monitoring pandemic trends across 195+ countries with advanced filtering, drill-down capabilities, and animated temporal trend analysis.</div>
-          <div class="project-tech">
-            <span>Tableau</span><span>Data Viz</span><span>Public Health</span>
-          </div>
+          <div class="project-tech"><span>Tableau</span><span>Data Viz</span><span>Public Health</span></div>
           <div class="project-links">
             <a href="https://public.tableau.com/app/profile/nafees.shaikh5920/viz/covid19_17468123173620/Dashboard1" target="_blank" class="project-link primary">Live Demo ↗</a>
           </div>
@@ -868,68 +850,59 @@ footer {
 
       <div class="project-card reveal reveal-delay-2">
         <div class="project-thumb">
-          <img src="netflix.PNG" alt="Netflix BI"
-            onerror="this.src='https://placehold.co/600x400/0C1524/E50914?text=Netflix+Dashboard'">
+          <img src="netflix.PNG" alt="Netflix BI" onerror="this.src='https://placehold.co/600x400/0C1524/E50914?text=Netflix+Dashboard'">
           <div class="project-thumb-overlay"></div>
           <div class="project-category">Tableau · BI</div>
         </div>
         <div class="project-body">
           <div class="project-title">Netflix Content Intelligence Dashboard</div>
           <div class="project-desc">BI solution analysing 8,000+ content entries with heat maps, geographic analysis, content-type breakdowns, and temporal trend comparisons of Netflix's global library.</div>
-          <div class="project-tech">
-            <span>Tableau</span><span>BI</span><span>Content Analytics</span>
-          </div>
+          <div class="project-tech"><span>Tableau</span><span>BI</span><span>Content Analytics</span></div>
           <div class="project-links">
             <a href="https://public.tableau.com/app/profile/nafees.shaikh5920/viz/netflix_17468124620910/Netflix" target="_blank" class="project-link primary">Live Demo ↗</a>
           </div>
         </div>
       </div>
 
+      <!-- AUTO DATA CLEANER PRO — FULLY UPDATED -->
       <div class="project-card reveal reveal-delay-2">
-  <div class="project-thumb">
-    <img src="autodatacleaner.PNG" alt="Auto Data Cleaner Pro"
-      onerror="this.src='https://placehold.co/600x400/0C1524/00AEEF?text=Auto+Data+Cleaner+Pro'">
-    <div class="project-thumb-overlay"></div>
-    <div class="project-category">Python · ML</div>
-  </div>
-
-  <div class="project-body">
-    <div class="project-title">Auto Data Cleaner Pro – Ultra Edition</div>
-
-    <div class="project-desc">
-      Developed a professional desktop application for automated data cleaning and quality analysis. Implemented multiple preprocessing operations including duplicate removal, missing value handling, data type correction, text normalization, and outlier detection. Integrated AI-based anomaly detection using Isolation Forest and built interactive dashboards with heatmaps, correlation analysis, quality scoring, and exportable reports for better decision-making.
-    </div>
-
-    <div class="project-tech">
-      <span>Python</span>
-      <span>Pandas</span>
-      <span>Scikit-learn</span>
-      <span>Tkinter</span>
-      <span>Matplotlib</span>
-      <span>Seaborn</span>
-    </div>
-
-    <div class="project-links">
-      <a href="https://github.com/datascience619/-Auto-Data-Cleaner-" target="_blank" class="project-link primary">
-        GitHub ↗
-      </a>
-    </div>
-  </div>
-</div>
+        <div class="project-thumb">
+          <img src="autodatacleaner.PNG" alt="Auto Data Cleaner Pro"
+            onerror="this.src='https://placehold.co/600x400/0C1524/00AEEF?text=Auto+Data+Cleaner+Pro'">
+          <div class="project-thumb-overlay"></div>
+          <div class="project-category">Python · ML · AI</div>
+        </div>
+        <div class="project-body">
+          <div class="project-title">🚀 Auto Data Cleaner Pro — Ultra Edition</div>
+          <div class="project-desc">
+            Data cleaning takes 60–80% of analyst time. This desktop app automates the full pipeline:
+            auto-detects missing values (5 strategies: mean, median, mode, forward/back-fill),
+            removes duplicates, standardizes columns &amp; data types, normalizes text.
+            Features <strong>AI anomaly detection</strong> (Isolation Forest) and a
+            <strong>Data Quality Score A–F</strong> (completeness, uniqueness, consistency, validity).
+            8 built-in visualizations: heatmaps, correlation matrix, distribution plots, pair plots &amp; more.
+            Exports cleaned CSV/Excel + detailed quality report.
+            Built with real-time threading in Tkinter to keep the UI fully responsive.
+          </div>
+          <div class="project-tech">
+            <span>Python</span><span>Pandas</span><span>Scikit-learn</span><span>Tkinter</span><span>Matplotlib</span><span>Seaborn</span><span>NumPy</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/datascience619/-Auto-Data-Cleaner-" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub ↗</a>
+          </div>
+        </div>
+      </div>
 
       <div class="project-card reveal">
         <div class="project-thumb">
-          <img src="summarizer.JPG" alt="NLP Tool"
-            onerror="this.src='https://placehold.co/600x400/0C1524/7C5CFF?text=NLP+Tool'">
+          <img src="summarizer.JPG" alt="NLP Tool" onerror="this.src='https://placehold.co/600x400/0C1524/7C5CFF?text=NLP+Tool'">
           <div class="project-thumb-overlay"></div>
           <div class="project-category">NLP · Python</div>
         </div>
         <div class="project-body">
-          <div class="project-title">Text Summarization & Translation Tool</div>
+          <div class="project-title">Text Summarization &amp; Translation Tool</div>
           <div class="project-desc">GUI tool to summarize, translate, and convert text/audio from PDF, DOCX, and TXT files. NLP algorithms with multi-language support via Google Translate API.</div>
-          <div class="project-tech">
-            <span>NLP</span><span>Python</span><span>Google Translate API</span><span>Text-to-Speech</span>
-          </div>
+          <div class="project-tech"><span>NLP</span><span>Python</span><span>Google Translate API</span><span>Text-to-Speech</span></div>
           <div class="project-links">
             <a href="https://github.com/datascience619/Text-summarisation" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           </div>
@@ -938,17 +911,14 @@ footer {
 
       <div class="project-card reveal reveal-delay-1">
         <div class="project-thumb">
-          <img src="agribot.JPG" alt="AgriBot"
-            onerror="this.src='https://placehold.co/600x400/0C1524/00E5A0?text=AgriBot'">
+          <img src="agribot.JPG" alt="AgriBot" onerror="this.src='https://placehold.co/600x400/0C1524/00E5A0?text=AgriBot'">
           <div class="project-thumb-overlay"></div>
           <div class="project-category">CNN · ML</div>
         </div>
         <div class="project-body">
           <div class="project-title">Agricultural AI Assistant Tool</div>
           <div class="project-desc">Crop recommendation engine using Random Forest based on soil parameters, plus a CNN model for plant disease detection from leaf images (PlantVillage dataset).</div>
-          <div class="project-tech">
-            <span>CNN</span><span>Random Forest</span><span>OpenCV</span><span>Tkinter</span>
-          </div>
+          <div class="project-tech"><span>CNN</span><span>Random Forest</span><span>OpenCV</span><span>Tkinter</span></div>
           <div class="project-links">
             <a href="https://github.com/datascience619/Agribot/tree/main" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           </div>
@@ -957,17 +927,14 @@ footer {
 
       <div class="project-card reveal reveal-delay-2">
         <div class="project-thumb">
-          <img src="fingerpring.jpg" alt="Biometric Auth"
-            onerror="this.src='https://placehold.co/600x400/0C1524/F5A623?text=Biometric+Auth'">
+          <img src="fingerpring.jpg" alt="Biometric Auth" onerror="this.src='https://placehold.co/600x400/0C1524/F5A623?text=Biometric+Auth'">
           <div class="project-thumb-overlay"></div>
           <div class="project-category">CV · OpenCV</div>
         </div>
         <div class="project-body">
-          <div class="project-title">Fingerprint & Signature Recognition</div>
+          <div class="project-title">Fingerprint &amp; Signature Recognition</div>
           <div class="project-desc">Biometric verification system using ORB feature matching with a user-friendly GUI for dynamic image comparison. <strong>🏆 3rd Prize — National Model Making Competition.</strong></div>
-          <div class="project-tech">
-            <span>Python</span><span>OpenCV</span><span>Computer Vision</span><span>ORB</span>
-          </div>
+          <div class="project-tech"><span>Python</span><span>OpenCV</span><span>Computer Vision</span><span>ORB</span></div>
           <div class="project-links">
             <a href="https://github.com/datascience619/Authentication" target="_blank" class="project-link primary"><i class="fab fa-github"></i> GitHub</a>
           </div>
@@ -1016,13 +983,13 @@ footer {
 <section id="certificates">
   <div class="container z1">
     <div class="section-eyebrow reveal">Credentials</div>
-    <div class="section-title reveal">Awards & <span>Certifications</span></div>
+    <div class="section-title reveal">Awards &amp; <span>Certifications</span></div>
 
     <div class="award-banner reveal">
       <div class="award-icon">🏆</div>
       <div>
         <div class="award-title">3rd Prize — Inter College Model Making Competition in RMC</div>
-        <div class="award-desc">AI-based Biometric Authentication System using fingerprint & signature recognition via OpenCV and ORB feature matching. Recparticipants at RMC .</div>
+        <div class="award-desc">AI-based Biometric Authentication System using fingerprint &amp; signature recognition via OpenCV and ORB feature matching. Recognised among top participants at RMC.</div>
       </div>
     </div>
 
@@ -1035,6 +1002,7 @@ footer {
           <a href="https://uniathena.com/verify/certificate?certID=5107-6408-2727" target="_blank" class="cert-link" onclick="event.stopPropagation()">Verify ↗</a>
         </div>
       </div>
+
       <div class="cert-card reveal reveal-delay-1" onclick="openModal('ibm_data_analysis.jpg')">
         <div class="cert-thumb"><img src="ibm_data_analysis.jpg" alt="IBM Cert" onerror="this.src='https://placehold.co/400x200/0C1524/0062FF?text=IBM+Cert'"></div>
         <div class="cert-body">
@@ -1044,6 +1012,7 @@ footer {
           <a href="https://courses.cognitiveclass.ai/certificates/0aedd4f2f37c4d589dce4e9851f93c42" target="_blank" class="cert-link" onclick="event.stopPropagation()">View ↗</a>
         </div>
       </div>
+
       <div class="cert-card reveal reveal-delay-2" onclick="openModal('debuging.jpg')">
         <div class="cert-thumb"><img src="debuging.jpg" alt="Debugging" onerror="this.src='https://placehold.co/400x200/0C1524/7C5CFF?text=Debugging+Cert'"></div>
         <div class="cert-body">
@@ -1052,6 +1021,7 @@ footer {
           <span class="cert-link" style="cursor:pointer">Preview</span>
         </div>
       </div>
+
       <div class="cert-card reveal" onclick="openModal('aichat.jpg')">
         <div class="cert-thumb"><img src="aichat.jpg" alt="AI Chatbot" onerror="this.src='https://placehold.co/400x200/0C1524/00E5A0?text=AI+Chatbot'"></div>
         <div class="cert-body">
@@ -1060,6 +1030,7 @@ footer {
           <a href="https://cert.diceid.com/cid/ck61Mn5sgA?verify=true" target="_blank" class="cert-link" onclick="event.stopPropagation()">Verify ↗</a>
         </div>
       </div>
+
       <div class="cert-card reveal reveal-delay-1" onclick="openModal('BI.jpg')">
         <div class="cert-thumb"><img src="BI.jpg" alt="Power BI" onerror="this.src='https://placehold.co/400x200/0C1524/F2C811?text=Power+BI'"></div>
         <div class="cert-body">
@@ -1068,15 +1039,17 @@ footer {
           <span class="cert-link" style="cursor:pointer">Preview</span>
         </div>
       </div>
+
       <div class="cert-card reveal reveal-delay-2" onclick="openModal('cyber.jpg')">
         <div class="cert-thumb"><img src="cyber.jpg" alt="Cybersecurity" onerror="this.src='https://placehold.co/400x200/0C1524/F5A623?text=Cybersecurity'"></div>
         <div class="cert-body">
           <div class="cert-issuer">WORKSHOP</div>
           <div class="cert-title">Cybersecurity Workshop</div>
-          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem;">Ethical hacking & system protection</p>
+          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem;">Ethical hacking &amp; system protection</p>
           <span class="cert-link" style="cursor:pointer">Preview</span>
         </div>
       </div>
+
       <div class="cert-card reveal" onclick="openModal('DataA.jpg')">
         <div class="cert-thumb"><img src="DataA.jpg" alt="Data Analyst" onerror="this.src='https://placehold.co/400x200/0C1524/00E5A0?text=Data+Analyst'"></div>
         <div class="cert-body">
@@ -1085,6 +1058,7 @@ footer {
           <a href="https://oneroadmap.io/skills/da/certificate/CERT-809B37AC" target="_blank" class="cert-link" onclick="event.stopPropagation()">View ↗</a>
         </div>
       </div>
+
       <div class="cert-card reveal reveal-delay-1" onclick="openModal('SQL.jpg')">
         <div class="cert-thumb"><img src="SQL.jpg" alt="SQL" onerror="this.src='https://placehold.co/400x200/0C1524/F5A623?text=SQL+Cert'"></div>
         <div class="cert-body">
@@ -1093,6 +1067,7 @@ footer {
           <a href="https://oneroadmap.io/skills/sql/certificate/CERT-F4BE15CC" target="_blank" class="cert-link" onclick="event.stopPropagation()">View ↗</a>
         </div>
       </div>
+
       <div class="cert-card reveal reveal-delay-2" onclick="openModal('python.jpg')">
         <div class="cert-thumb"><img src="python.jpg" alt="Python" onerror="this.src='https://placehold.co/400x200/0C1524/7C5CFF?text=Python+Cert'"></div>
         <div class="cert-body">
@@ -1101,6 +1076,7 @@ footer {
           <a href="https://oneroadmap.io/skills/python/certificate/CERT-3F942214" target="_blank" class="cert-link" onclick="event.stopPropagation()">View ↗</a>
         </div>
       </div>
+
       <div class="cert-card reveal" onclick="openModal('Data BI.jpg')">
         <div class="cert-thumb"><img src="Data BI.jpg" alt="PowerBI Workshop" onerror="this.src='https://placehold.co/400x200/0C1524/F2C811?text=Data+Analytics+BI'"></div>
         <div class="cert-body">
@@ -1110,6 +1086,7 @@ footer {
           <span class="cert-link" style="cursor:pointer">Preview</span>
         </div>
       </div>
+
       <div class="cert-card reveal reveal-delay-1" onclick="openModal('Data Mining.png')">
         <div class="cert-thumb"><img src="Data Mining.png" alt="Data Mining" onerror="this.src='https://placehold.co/400x200/0C1524/00D4FF?text=Data+Mining'"></div>
         <div class="cert-body">
@@ -1119,13 +1096,42 @@ footer {
           <span class="cert-link" style="cursor:pointer">Preview</span>
         </div>
       </div>
-      <div class="cert-card reveal reveal-delay-2" onclick="openModal('model1.jpg')">
-        <div class="cert-thumb"><img src="model1.jpg" alt="Award" onerror="this.src='https://placehold.co/400x200/0C1524/F5A623?text=🏆+Award'"></div>
+
+      <!-- NEW: Deep Learning with PyTorch -->
+      <div class="cert-card reveal reveal-delay-2" onclick="openModal('pytorch_cert.jpg')">
+        <div class="cert-thumb">
+          <img src="pytorch_cert.jpg" alt="PyTorch Deep Learning"
+            onerror="this.src='https://placehold.co/400x200/0C1524/EE4C2C?text=PyTorch+Deep+Learning'">
+        </div>
         <div class="cert-body">
-          <div class="cert-issuer">inter College Competition· 🏆 3RD PRIZE</div>
+          <div class="cert-issuer">SIMPLILEARN SKILLUP</div>
+          <div class="cert-title">Deep Learning Engineer: Intro to PyTorch</div>
+          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem;">AI · Industry-aligned skills · 2025</p>
+          <a href="https://lnkd.in/eYRKyhcN" target="_blank" class="cert-link" onclick="event.stopPropagation()">Explore ↗</a>
+        </div>
+      </div>
+
+      <!-- NEW: Introduction to NumPy -->
+      <div class="cert-card reveal" onclick="openModal('numpy_cert.jpg')">
+        <div class="cert-thumb">
+          <img src="numpy_cert.jpg" alt="NumPy Certification"
+            onerror="this.src='https://placehold.co/400x200/013243/4dabf7?text=NumPy+Cert'">
+        </div>
+        <div class="cert-body">
+          <div class="cert-issuer">SIMPLILEARN SKILLUP</div>
+          <div class="cert-title">Introduction to NumPy</div>
+          <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem;">Software Development · 2025</p>
+          <a href="https://lnkd.in/eYRKyhcN" target="_blank" class="cert-link" onclick="event.stopPropagation()">Explore ↗</a>
+        </div>
+      </div>
+
+      <div class="cert-card reveal reveal-delay-1" onclick="openModal('model1.jpg')">
+        <div class="cert-thumb"><img src="model1.jpg" alt="Award" onerror="this.src='https://placehold.co/400x200/0C1524/F5A623?text=Award'"></div>
+        <div class="cert-body">
+          <div class="cert-issuer">INTER COLLEGE COMPETITION · 🏆 3RD PRIZE</div>
           <div class="cert-title">Model Making Competition</div>
           <p style="font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem;">AI Biometric Authentication System</p>
-          <span class="cert-link" style="cursor:pointer;background:var(--gold);border-color:var(--gold);">View Award</span>
+          <span class="cert-link" style="cursor:pointer;background:var(--gold);border-color:var(--gold);color:var(--ink)">View Award</span>
         </div>
       </div>
     </div>
@@ -1139,7 +1145,7 @@ footer {
     <div class="section-title reveal">Let's <span>Connect</span></div>
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <h3>Open to Roles & Collaborations</h3>
+        <h3>Open to Roles &amp; Collaborations</h3>
         <p>I'm actively looking for Data Analyst, Data Scientist, and BI Developer roles. Whether it's a full-time position, freelance project, or just a conversation about data — I'd love to hear from you.</p>
         <div class="contact-items">
           <a href="mailto:nafisshaikh114@gmail.com" class="contact-item">
@@ -1150,9 +1156,9 @@ footer {
             <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
             <div class="contact-item-text"><strong>Phone</strong><span>+91 99755 84833</span></div>
           </a>
-          <a href="https://wa.me/919975584833" target="_blank" class="contact-item">
-            <div class="contact-item-icon"><i class="fab fa-whatsapp"></i></div>
-            <div class="contact-item-text"><strong>WhatsApp</strong><span>Message me directly</span></div>
+          <a href="https://wa.me/919975584833" target="_blank" class="contact-item" style="border-color:rgba(37,211,102,0.3)">
+            <div class="contact-item-icon" style="background:rgba(37,211,102,0.12);color:#25D366"><i class="fab fa-whatsapp"></i></div>
+            <div class="contact-item-text"><strong>WhatsApp</strong><span>+91 99755 84833 — Message directly</span></div>
           </a>
           <a href="https://linkedin.com/in/nafees-shaikh-441405251" target="_blank" class="contact-item">
             <div class="contact-item-icon"><i class="fab fa-linkedin-in"></i></div>
@@ -1172,8 +1178,20 @@ footer {
           </div>
         </div>
       </div>
+
       <div class="contact-form-card reveal reveal-delay-1">
         <h3>Send a Message</h3>
+
+        <!-- WhatsApp quick-send -->
+        <div class="wa-row">
+          <a href="https://wa.me/919975584833?text=Hi%20Nafees%2C%20I%20came%20across%20your%20portfolio%20and%20wanted%20to%20connect!" target="_blank" class="wa-btn">
+            <i class="fab fa-whatsapp"></i> Message on WhatsApp
+          </a>
+          <div class="wa-divider"></div>
+          <span class="wa-divider-text">OR</span>
+          <div class="wa-divider"></div>
+        </div>
+
         <form id="contactForm">
           <div class="form-row">
             <div class="form-group">
@@ -1184,6 +1202,10 @@ footer {
               <label>Email Address</label>
               <input type="email" id="c-email" placeholder="you@company.com" required>
             </div>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number (optional)</label>
+            <input type="tel" id="c-whatsapp" placeholder="+91 98765 43210">
           </div>
           <div class="form-group">
             <label>Subject</label>
@@ -1227,14 +1249,11 @@ footer {
 </div>
 
 <script>
-/* ── CANVAS BG ── */
+/* CANVAS BG */
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
 let W, H, particles = [];
-function resize() {
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-}
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
 resize();
 window.addEventListener('resize', resize);
 class P {
@@ -1275,8 +1294,14 @@ function animate() {
 }
 animate();
 
-/* ── TYPEWRITER ── */
-const phrases = ["Python · SQL · Tableau","Predictive Modeling · BI","Data → Decisions → Impact","Open to Data Analyst Roles"];
+/* TYPEWRITER */
+const phrases = [
+  "Python · SQL · Tableau",
+  "Predictive Modeling · BI",
+  "PyTorch · Deep Learning · ML",
+  "Data → Decisions → Impact",
+  "Open to Data Analyst Roles"
+];
 let pi=0,ci=0,del=false;
 const tel = document.getElementById('typewriter-text');
 function type() {
@@ -1289,7 +1314,7 @@ function type() {
 }
 setTimeout(type,800);
 
-/* ── COUNTER ── */
+/* COUNTER */
 const statEls = document.querySelectorAll('[data-target]');
 let counted=false;
 function runCount() {
@@ -1303,20 +1328,20 @@ const io=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isInterse
 const statsEl=document.querySelector('.hero-stats');
 if(statsEl) io.observe(statsEl);
 
-/* ── SCROLL REVEAL ── */
+/* SCROLL REVEAL */
 const revealEls = document.querySelectorAll('.reveal');
 const revealObs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
 },{threshold:0.12});
 revealEls.forEach(el=>revealObs.observe(el));
 
-/* ── MOBILE NAV ── */
+/* MOBILE NAV */
 const ham=document.getElementById('hamburger');
 const mNav=document.getElementById('mobile-nav');
 ham.addEventListener('click',()=> mNav.classList.toggle('open'));
 mNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mNav.classList.remove('open')));
 
-/* ── MODAL ── */
+/* MODAL */
 function openModal(src) {
   document.getElementById('modal-img').src=src;
   document.getElementById('imgModal').classList.add('open');
@@ -1328,7 +1353,7 @@ document.getElementById('imgModal').addEventListener('click', e=> {
   if(e.target===document.getElementById('imgModal')) closeModal();
 });
 
-/* ── CONTACT FORM ── */
+/* CONTACT FORM */
 document.getElementById('contactForm').addEventListener('submit', e=>{
   e.preventDefault();
   const name=document.getElementById('c-name').value;
@@ -1339,7 +1364,7 @@ document.getElementById('contactForm').addEventListener('submit', e=>{
   setTimeout(()=>success.style.display='none',5000);
 });
 
-/* ── NAV SCROLL EFFECT ── */
+/* NAV SCROLL EFFECT */
 window.addEventListener('scroll',()=>{
   document.querySelector('nav').style.borderBottomColor = window.scrollY>60 ? 'rgba(0,212,255,0.18)' : 'rgba(0,212,255,0.12)';
 });

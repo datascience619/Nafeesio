@@ -932,7 +932,7 @@ footer{padding:48px 0;}
       </div>
 
       <div class="project-card" data-cat="Python">
-  <div class="pc-media"><img src="autodatacleaner.PNG" alt="Auto Data Cleaner Pro — Ultra Edition" loading="lazy"></div>
+  <div class="pc-media"><img src="auto data.png" alt="Auto Data Cleaner Pro — Ultra Edition" loading="lazy"></div>
   <div class="pc-body">
         <div class="pc-top">
           <span class="pc-cat">Python</span>
@@ -1112,13 +1112,13 @@ footer{padding:48px 0;}
       </div>
       <div class="cert-card reveal">
         <div class="cert-media" id="cert-11">
-          <img src="Data Mining.png" alt="Introduction to Data Mining" loading="lazy" onerror="this.classList.add('broken'); this.parentElement.classList.add('no-img');">
+          <img src="PyTorch.png" alt="Introduction to Data Mining" loading="lazy" onerror="this.classList.add('broken'); this.parentElement.classList.add('no-img');">
           <div class="cert-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6h-4z"/><path d="M14 3v6h6M9 13h6M9 17h4"/></svg><span>ADD DATA MINING.PNG</span></div>
         </div>
         <div class="cert-body">
           <div class="cert-org">Simplilearn SkillUp</div>
           <h3 class="cert-title">Introduction to Data Mining</h3>
-          <span class="cert-link disabled">No public link</span>
+          <a href="https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIyNDk3IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvODU5OTAzOF84ODY1OTYzMTc1MjA3MjkxMDYyNy5wbmciLCJ1c2VybmFtZSI6Ik5hZmVlcyBTaGFpa2gifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F5185%2FIntroduction-to-Data-Mining-Course%2Fcertificate%2Fdownload-skillup&%24web_only=true&_branch_match_id=1569351381018697594&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k%2FVD89Kj6gwzXEPCk2yrytKTUstKsrMS49PKsovL04tsvUBqkpN8cwDAG%2B%2BmQhBAAAA" class="cert-link">Verify <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
         </div>
       </div>
       <div class="cert-card reveal">
@@ -1134,7 +1134,7 @@ footer{padding:48px 0;}
       </div>
       <div class="cert-card reveal">
         <div class="cert-media" id="cert-13">
-          <img src="numpy_cert.jpg" alt="Introduction to NumPy" loading="lazy" onerror="this.classList.add('broken'); this.parentElement.classList.add('no-img');">
+          <img src="Numpy.png" alt="Introduction to NumPy" loading="lazy" onerror="this.classList.add('broken'); this.parentElement.classList.add('no-img');">
           <div class="cert-fallback"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6h-4z"/><path d="M14 3v6h6M9 13h6M9 17h4"/></svg><span>ADD NUMPY_CERT.JPG</span></div>
         </div>
         <div class="cert-body">
@@ -1164,7 +1164,7 @@ footer{padding:48px 0;}
   <div class="container">
     <div class="achievement-panel reveal">
       <div class="achievement-media no-img" id="achievementPhoto">
-        <img src="nafees profile.jpg" alt="Receiving 3rd Prize at the Model Making Competition" loading="lazy" onerror="this.classList.add('broken'); this.parentElement.classList.add('no-img');">
+        <img src="nafeees11.jpg" alt="Receiving 3rd Prize at the Model Making Competition" loading="lazy" onerror="this.classList.add('broken'); this.parentElement.classList.add('no-img');">
         <div class="ach-fallback">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 5H4a1 1 0 0 0-1 1c0 2.5 1.5 4 4 4M17 5h3a1 1 0 0 1 1 1c0 2.5-1.5 4-4 4"/></svg>
           <span>ADD ACHIEVEMENT-PHOTO.JPG</span>
